@@ -93,7 +93,7 @@ class JTable##Component##Category extends JTableNested
 	{
 		parent::__construct('#__##component##_categories', 'id', $db);
 
-		$this->access = version_compare(JVERSION,'3.0','lt') ? (int) JFactory::getConfig()->getValue('access') : (int) JFactory::getConfig()->get('access');
+		$this->access = (int) JFactory::getConfig()->get('access');;
 	}
 
 	/**

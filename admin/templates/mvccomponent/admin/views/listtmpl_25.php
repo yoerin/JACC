@@ -24,7 +24,7 @@ defined('_JEXEC') or die('Restricted access');
 						<input type="text" name="search" id="search" value="##codestart##  echo $this->escape($this->state->get('filter.search'));##codeend##" class="text_area" onchange="document.adminForm.submit();" />
 					</div>
 					<div class="btn-group pull-left">
-						<button class="btn" onclick="this.form.submit();">##codestart## if(version_compare(JVERSION,'3.0','lt')): echo JText::_( 'Go' ); else: ##codeend##<i class="icon-search"></i>##codestart## endif; ##codeend##</button>
+						<button class="btn" onclick="this.form.submit();">##codestart##  ##codeend##<i class="icon-search"></i>##codestart##  ##codeend##</button>
 						<button type="button" class="btn" onclick="document.getElementById('search').value='';this.form.submit();">##codestart## if(version_compare(JVERSION,'3.0','lt')): echo JText::_( 'Reset' ); else: ##codeend##<i class="icon-remove"></i>##codestart## endif; ##codeend##</button>
 					</div>
 				</div>

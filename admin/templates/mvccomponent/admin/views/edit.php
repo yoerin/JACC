@@ -37,7 +37,7 @@ Joomla.submitbutton = function(task)
 </script>
 
 	 	<form method="post" action="##codestart## echo JRoute::_('index.php?option=##com_component##&layout=edit&id='.(int) $this->item->##primary##);  ##codeend##" id="adminForm" name="adminForm">
-	 	<div class="col ##codestart## if(version_compare(JVERSION,'3.0','lt')):  ##codeend##width-60  ##codestart## endif; ##codeend##span8 form-horizontal fltlft">
+	 	<div class="col ##codestart##  ##codeend##width-60  ##codestart##  ##codeend##span8 form-horizontal fltlft">
 		  <fieldset class="adminform">
 			<legend>##codestart## echo JText::_( 'Details' ); ##codeend##</legend>
 		<?php if (isset($this->formfield['details'])):
@@ -67,7 +67,7 @@ Joomla.submitbutton = function(task)
 
           </fieldset>
         </div>
-        <div class="col ##codestart## if(version_compare(JVERSION,'3.0','lt')):  ##codeend##width-30  ##codestart## endif; ##codeend##span2 fltrgt">
+        <div class="col ##codestart##  ##codeend##width-30  ##codestart##  ##codeend##span2 fltrgt">
 		<?php if (isset($this->formfield['params'])): ?>
 			<fieldset class="adminform">
 				<legend>##codestart## echo JText::_( 'Parameters' ); ##codeend##</legend>

@@ -124,7 +124,7 @@ class ##Component##ModelCategory extends JModelList
 	    $db = JFactory::getDbo();
 
 	    $table_name = str_replace('#__',$db->getPrefix(),$this->getState('filter.extensiontable'));
-	    $fields = version_compare(JVERSION,'3.0','lt') ?  $db->getTableFields($table_name, false) :  array($table_name => $db->getTableColumns($table_name, false));
+	    $fields = array($table_name => $db->getTableColumns($table_name, false));
         $table = $fields[$table_name];
 
 	    $query = $this->_db->getQuery(true);

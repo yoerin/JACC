@@ -5,9 +5,9 @@
 						##codestart## echo $this->form->getLabel('<?php echo $this->field->get('key') ?>'); ##codeend##
 					</div>
 <?php if ($this->field->get('formfield', 'text') =='editor'): ?>
-				##codestart## if(version_compare(JVERSION,'3.0','lt')): ##codeend##
+				##codestart##  ##codeend##
 				<div class="clr"></div>
-				##codestart##  endif; ##codeend##
+				##codestart##  ##codeend##
 <?php endif; ?>
 					<div class="controls">
 						##codestart## echo $this->form->getInput('<?php echo $this->field->get('key') ?>');  ##codeend##

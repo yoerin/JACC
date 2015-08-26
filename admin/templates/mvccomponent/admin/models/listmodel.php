@@ -19,13 +19,13 @@ class ##Component##Model##plural## extends JModelList
 {
 	public function __construct($config = array())
 	{
-        if (empty($config['filter_fields'])) {
-            $config['filter_fields'] = array(
-            <?php foreach ($this->listfieldlist as $field): ?>
-                '<?php echo $field; ?>', 'a.<?php echo $field; ?>',
-            <?php endforeach; ?>
-            );
-        }
+		if (empty($config['filter_fields'])) {
+			$config['filter_fields'] = array(
+				<?php foreach ($this->listfieldlist as $field): ?>
+					'<?php echo $field; ?>', 'a.<?php echo $field; ?>',
+				<?php endforeach; ?>
+			);
+		}
 
 		parent::__construct($config);
 	}

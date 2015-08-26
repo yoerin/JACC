@@ -50,13 +50,9 @@ class ##Component##View##plural##  extends JViewLegacy {
 		##Component##Helper::addSubmenu('##plural##');
 
 		$this->addToolbar();
-		if(!version_compare(JVERSION,'3','<')){
-			$this->sidebar = JHtmlSidebar::render();
-		}
-
-		if(version_compare(JVERSION,'3','<')){
-			$tpl = "25";
-		}
+		
+		$this->sidebar = JHtmlSidebar::render();
+		
 		parent::display($tpl);
 	}
 
@@ -125,27 +121,25 @@ class ##Component##View##plural##  extends JViewLegacy {
 
 
 		JToolBarHelper::preferences('com_##component##', '550');
-		if(!version_compare(JVERSION,'3','<')){
-			JHtmlSidebar::setAction('index.php?option=##com_component##&view=##plural##');
-		}
+		
+		JHtmlSidebar::setAction('index.php?option=##com_component##&view=##plural##');
+		
 		<?php if($this->publishedField): ?>
-		if(!version_compare(JVERSION,'3','<')){
-			JHtmlSidebar::addFilter(
-				JText::_('JOPTION_SELECT_PUBLISHED'),
-				'filter_state',
-				JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.state'), true)
-			);
-		}
+		
+		JHtmlSidebar::addFilter(
+			JText::_('JOPTION_SELECT_PUBLISHED'),
+			'filter_state',
+			JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.state'), true)
+		);
 		<?php endif; ?>
 
 		<?php if($this->uses_categories): ?>
-		if(!version_compare(JVERSION,'3','<')){
-			JHtmlSidebar::addFilter(
-				JText::_('JOPTION_SELECT_CATEGORY'),
-				'filter_category_id',
-				JHtml::_('select.options', JHtml::_('category.options', '##com_component##.##name##'), 'value', 'text', $this->state->get('filter.category_id'))
-			);
-		}
+		
+		JHtmlSidebar::addFilter(
+			JText::_('JOPTION_SELECT_CATEGORY'),
+			'filter_category_id',
+			JHtml::_('select.options', JHtml::_('category.options', '##com_component##.##name##'), 'value', 'text', $this->state->get('filter.category_id'))
+		);
 
 		<?php endif?>
 	}
