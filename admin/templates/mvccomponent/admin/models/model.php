@@ -10,17 +10,17 @@
 */
  defined('_JEXEC') or die('Restricted access');
 /**
- * ##Component##Model##Name## 
+ * ##Component##Model##Name##
  * @author ##author##
  */
-if(version_compare(JVERSION,'3','<')){ 
+if(version_compare(JVERSION,'3','<')){
 	jimport('joomla.application.component.modeladmin');
 	jimport('joomla.application.component.modelform');
- } 
- 
-class ##Component##Model##Name##  extends JModelAdmin { 
+ }
 
-		
+class ##Component##Model##Name##  extends JModelAdmin {
+
+
 /**
 	 * Method to get the record form.
 	 *
@@ -38,7 +38,7 @@ class ##Component##Model##Name##  extends JModelAdmin {
 		{
 			return false;
 		}
-<?php if($this->uses_categories): ?>     
+<?php if($this->uses_categories): ?>
 		// Determine correct permissions to check.
 		if ($this->getState('##name##.<?php echo $this->hident ?>'))
 		{
@@ -68,17 +68,17 @@ class ##Component##Model##Name##  extends JModelAdmin {
 		if (empty($data))
 		{
 			$data = $this->getItem();
-		
+
 		}
-		
+
 		if(!version_compare(JVERSION,'3','<')){
 			$this->preprocessData('com_##component##.##name##', $data);
 		}
-		
+
 
 		return $data;
 	}
-	
-	
+
+
 }
 ##codeend##

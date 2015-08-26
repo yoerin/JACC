@@ -16,7 +16,7 @@ jimport('joomla.application.component.controller');
 /**
  * ##Component## Standard Controller
  *
- * @package ##Component##   
+ * @package ##Component##
  * @subpackage Controllers
  */
 class ##Component##Controller extends JControllerLegacy
@@ -26,7 +26,7 @@ class ##Component##Controller extends JControllerLegacy
 	 * @since   1.6
 	 */
 	protected $default_view = '##defaultviewname##';
-	
+
 	/**
 	 * Method to display a view.
 	 *
@@ -44,10 +44,10 @@ class ##Component##Controller extends JControllerLegacy
 		$id     = $input->get('id');
 
 		parent::display();
-	
+
 		return $this;
 	}
 
 }// class
-  
+
 ?>

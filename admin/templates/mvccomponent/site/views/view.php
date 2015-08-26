@@ -13,8 +13,8 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.view');
 
- 
-class ##Component##View##Name##  extends JViewLegacy 
+
+class ##Component##View##Name##  extends JViewLegacy
 {
 
 	protected $form;
@@ -30,8 +30,8 @@ class ##Component##View##Name##  extends JViewLegacy
 	{
 
 		$app = JFactory::getApplication('site');
-		
-		// Initialise variables.		
+
+		// Initialise variables.
 		$this->item  = $this->get('Item');
 		$this->state = $this->get('State');
 
@@ -42,14 +42,14 @@ class ##Component##View##Name##  extends JViewLegacy
 
 			return false;
 		}
-		
+
 		//Get Params and Merge
 		$this->params	= $this->state->get('params');
 		$active	= $app->getMenu()->getActive();
 		$temp	= clone ($this->params);
 		$temp->merge($this->item->params);
 		$this->item->params = $temp;
-		
+
 		parent::display($tpl);
 	}
 }

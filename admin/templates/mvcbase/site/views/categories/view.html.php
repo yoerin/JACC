@@ -32,35 +32,35 @@ class ##Component##ViewCategories extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-		 
+
 		// Initialise variables
 		$this->state		= $this->get('State');
 		$items		= $this->get('Items');
 		$parent		= $this->get('Parent');
-		
+
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
 			JError::raiseWarning(500, implode("\n", $errors));
 			return false;
 		}
-		
+
 		if ($items === false) {
 			return JError::raiseWarning(404, JText::_('JGLOBAL_CATEGORY_NOT_FOUND'));
 		}
-		
+
 		if ($parent == false) {
 			return JError::raiseWarning(404, JText::_('JGLOBAL_CATEGORY_NOT_FOUND'));
 		}
-		
-		
+
+
 		$params = $this->state->params;
-		
+
 		$items = array($parent->id => $items);
 		$this->maxLevelcat = $params->get('maxLevelcat', -1);
 		$this->params = $params;
 		$this->parent = $parent;
 		$this->items = $items;
-		
+
 		$this->_prepareDocument();
 		parent::display($tpl);
 	}

@@ -36,7 +36,7 @@ class JFormFieldCategoryParent extends JFormFieldList
 	protected function getOptions()
 	{
 		$app = JFactory::getApplication();
-		
+
 		$db		= JFactory::getDbo();
 		$query = $db->getQuery(true);
 

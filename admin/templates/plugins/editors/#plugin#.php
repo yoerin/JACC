@@ -11,7 +11,7 @@ jimport('joomla.plugin.plugin');
 
 class plg##Plugtype####Plugin## extends JPlugin
 {
-	
+
 	/**
 	 * Method to handle the onInitEditor event.
 	 *  - Initialises the Editor
@@ -181,5 +181,5 @@ class plg##Plugtype####Plugin## extends JPlugin
 
 		return $return;
 	}
-    
+
 }

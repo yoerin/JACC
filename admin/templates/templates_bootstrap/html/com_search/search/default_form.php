@@ -12,7 +12,7 @@
 				value="<?php echo $this->escape($this->searchword); ?>"
 				class="inputbox search-query" />
 
-			<button name="Search" onclick="this.form.submit()" class="btn">				
+			<button name="Search" onclick="this.form.submit()" class="btn">
 				<i class="icon-search"></i>
 			</button>
 		</div>
@@ -34,13 +34,13 @@
 	<?php foreach ($this->searchareas['search'] as $val => $txt) :
 	$checked = is_array( $this->searchareas['active'] ) && in_array( $val, $this->searchareas['active'] ) ? 'checked="checked"' : '';
 	?>
-	 
+
 	<label
 		class="checkbox inline" for="area_<?php echo $val;?>"> <?php echo JText::_($txt); ?>
-	
+
 	<input  type="checkbox" name="areas[]" value="<?php echo $val;?>" id="area_<?php echo $val;?>" <?php echo $checked;?> />
 	</label>
-		 
+
 	<?php endforeach; ?>
 	</div>
 	</div>
@@ -48,16 +48,16 @@
 
 	<div class="navbar">
 		<div class="navbar-inner"  style="padding-bottom:5px;padding-top:10px;">
-			<div class="pull-left">			
+			<div class="pull-left">
 			<?php echo JText::_( 'Search Keyword' ) .' <b>'. $this->escape($this->searchword) .'</b>'; ?><br />
 				<?php echo $this->result; ?>
-			</div>	
+			</div>
 			<div></div>
-			<div class="pull-right">								
+			<div class="pull-right">
 				<?php echo $this->pagination->getLimitBox( ); ?>
 				<label class="pull-left" for="limit"> <?php echo JText::_( 'Display Num' ); ?>
 					</label>
-			</div>	
+			</div>
 	</div>
 	</div>
 	<br />

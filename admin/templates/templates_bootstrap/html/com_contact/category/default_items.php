@@ -25,7 +25,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 		<?php echo $this->escape($item->telephone); ?>
 	</td>
 	<?php endif; ?>
-	
+
 </tr>
 <?php endforeach; ?>
 

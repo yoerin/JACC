@@ -10,11 +10,11 @@
 	</layout>
 	<state>
 	<name>##Name## Layout</name>
-		<description>##Name## Layout_DESC</description>	
+		<description>##Name## Layout_DESC</description>
 		<params>
 		</params>
 	</state>
-	
+
 	<!-- Fields for Joomla > 1.5. -->
 	<fields name="request">
 		<fieldset name="request"
@@ -27,7 +27,7 @@
 				required="false"
 			/>
 		</fieldset>
-	</fields>	
+	</fields>
 	<!-- Add fields to the parameters object for the layout. -->
 	<fields name="params">
 	</fields>

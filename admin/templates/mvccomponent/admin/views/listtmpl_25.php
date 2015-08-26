@@ -11,7 +11,7 @@ defined('_JEXEC') or die('Restricted access');
   $user		= JFactory::getUser();
   $userId		= $user->get('id');
   $listOrder	= $this->escape($this->state->get('list.ordering'));
-  $listDirn	= $this->escape($this->state->get('list.direction'));    
+  $listDirn	= $this->escape($this->state->get('list.direction'));
 ##codeend##
 
 <form action="index.php?option=##com_component##&amp;view=##name##" method="post" name="adminForm" id="adminForm">
@@ -27,16 +27,16 @@ defined('_JEXEC') or die('Restricted access');
 						<button class="btn" onclick="this.form.submit();">##codestart## if(version_compare(JVERSION,'3.0','lt')): echo JText::_( 'Go' ); else: ##codeend##<i class="icon-search"></i>##codestart## endif; ##codeend##</button>
 						<button type="button" class="btn" onclick="document.getElementById('search').value='';this.form.submit();">##codestart## if(version_compare(JVERSION,'3.0','lt')): echo JText::_( 'Reset' ); else: ##codeend##<i class="icon-remove"></i>##codestart## endif; ##codeend##</button>
 					</div>
-				</div>					
+				</div>
 			</td>
 			<td nowrap="nowrap">
 <?php if($this->publishedField): ?>
 				##codestart##
  				  	echo JHTML::_('grid.state', $this->state->get('filter.state'), 'Published', 'Unpublished', 'Archived', 'Trashed');
   				##codeend##
-<?php endif; ?>		
+<?php endif; ?>
 			</td>
-		</tr>		
+		</tr>
 	</table>
 <div id="editcell">
 	<table class="adminlist table table-striped">
@@ -45,7 +45,7 @@ defined('_JEXEC') or die('Restricted access');
 				<th width="5">
 					##codestart## echo JText::_( 'NUM' ); ##codeend##
 				</th>
-				<th width="20">				
+				<th width="20">
 					<input type="checkbox" name="toggle" value="" onclick="checkAll(##codestart## echo count( $this->items ); ##codeend##);" />
 				</th>
 <?php foreach ($this->listfieldlist as $field): ?>
@@ -66,50 +66,50 @@ defined('_JEXEC') or die('Restricted access');
 ##codestart##
   $k = 0;
   if (count( $this->items ) > 0 ):
-  
+
   for ($i=0, $n=count( $this->items ); $i < $n; $i++):
-  
+
   	$row = $this->items[$i];
  	$onclick = "";
 
     if (JFactory::getApplication()->input->get('function', null)) {
     	$onclick= "onclick=\"window.parent.jSelect##Name##_id('".$row->id."', '".$this->escape($row-><?php echo $this->hident ?>)."', '','##primary##')\" ";
-    }  	
-    
+    }
+
  	$link = JRoute::_( 'index.php?option=##com_component##&view=##name##&task=##name##.edit&id='. $row->##primary## );
  	$row->id = $row->##primary##;
 <?php if ($this->hasCheckin): ?>
  	$checked = JHTML::_('grid.checkedout', $row, $i );
-<?php else: ?> 	
+<?php else: ?>
 	$checked = JHTML::_('grid.id', $i, $row->##primary##);
-<?php endif;?>	
-<?php if($this->hasOrdering):?> 	
+<?php endif;?>
+<?php if($this->hasOrdering):?>
   	$published = JHTML::_('jgrid.published', $row->published, $i, '##plural##.');
-<?php endif; ?>  	
- 	
+<?php endif; ?>
+
   ##codeend##
 	<tr class="##codestart## echo "row$k"; ##codeend##">
-		
+
 		<td align="center">##codestart## echo $this->pagination->getRowOffset($i); ##codeend##.</td>
-        
+
         <td>##codestart## echo $checked  ##codeend##</td>
 <?php foreach ($this->listfieldlist as $field): ?>
-	<?php if($field == $this->hident):?>	
+	<?php if($field == $this->hident):?>
 	<td>
-<?php if ($this->hasCheckin): ?>      
+<?php if ($this->hasCheckin): ?>
         		##codestart##
 				if ( JTable::isCheckedOut($user->get ('id'), $row->checked_out ) ):
 							echo $row-><?php echo $this->hident ?>;
 						else:
 							##codeend##
-<?php endif; ?>						
+<?php endif; ?>
 							<a ##codestart## echo $onclick; ##codeend##href="##codestart## echo $link; ##codeend##">##codestart## echo $row-><?php echo $this->hident ?>; ##codeend##</a>
-<?php if ($this->hasCheckin): ?>							
-							##codestart##	
-				endif;			
+<?php if ($this->hasCheckin): ?>
+							##codestart##
+				endif;
 				##codeend##
-<?php endif; ?>								
-		</td>	
+<?php endif; ?>
+		</td>
 	<?php elseif($field == 'ordering'): ?>
 	        <td>
         	<span>##codestart## echo $this->pagination->orderUpIcon( $i, true, '##plural##.orderup', 'Move Up', ($listOrder == 'a.ordering' and $listDirn == 'asc'));##codeend##</span>
@@ -118,11 +118,11 @@ defined('_JEXEC') or die('Restricted access');
 	<?php elseif($field == $this->publishedField):?>
 	<td>##codestart## echo $<?php echo $this->publishedField; ?>; ##codeend##</td>
 	<?php else: ?>
-		<td>##codestart## echo $row-><?php echo $field; ?>; ##codeend##</td>		
+		<td>##codestart## echo $row-><?php echo $field; ?>; ##codeend##</td>
 	<?php endif;?>
 
 <?php endforeach;?>
-	</tr>		
+	</tr>
 ##codestart##
   $k = 1 - $k;
   endfor;

@@ -54,7 +54,7 @@ abstract class ##Component##HelperRoute
 
 
 	/**
-	 * Returns link to category view  
+	 * Returns link to category view
 	 * @param JCategoryNode $catid
 	 * @param number $language
 	 * @return string
@@ -62,22 +62,22 @@ abstract class ##Component##HelperRoute
 
 	public static function getCategoryRoute($catid, $language = 0)
 	{
-		
-		
+
+
 		if ($catid instanceof JCategoryNode)
 		{
-			$id = $catid->id;			
-			$category = $catid;			 
+			$id = $catid->id;
+			$category = $catid;
 		}
 		else
-		{			
-			throw new Exception('First parameter must be JCategoryNode');			
+		{
+			throw new Exception('First parameter must be JCategoryNode');
 		}
-	
+
 		$catviews = ##Component##Helper::getCategoryViews();
 		$extensionviews = array_flip($catviews);
 		$view = $extensionviews[$category->extension];
-		
+
 		if ($id < 1)
 		{
 			$link = '';
@@ -86,12 +86,12 @@ abstract class ##Component##HelperRoute
 		{
 			//Create the link
 			$link = 'index.php?option=com_##component##&view='.$view.'&category='.$category->slug;
-			
+
 			$needles = array(
 					$view => array($id),
 					'category' => array($id)
 			);
-	
+
 			if ($language && $language != "*" && JLanguageMultilang::isEnabled())
 			{
 				$db		= JFactory::getDbo();
@@ -99,7 +99,7 @@ abstract class ##Component##HelperRoute
 				->select('a.sef AS sef')
 				->select('a.lang_code AS lang_code')
 				->from('#__languages AS a');
-	
+
 				$db->setQuery($query);
 				$langs = $db->loadObjectList();
 				foreach ($langs as $lang)
@@ -111,11 +111,11 @@ abstract class ##Component##HelperRoute
 					}
 				}
 			}
-	
+
 			if ($item = self::_findItem($needles,'category'))
 			{
 
-				$link .= '&Itemid='.$item;				
+				$link .= '&Itemid='.$item;
 			}
 			else
 			{
@@ -136,15 +136,15 @@ abstract class ##Component##HelperRoute
 				}
 			}
 		}
-		
+
 		return $link;
-	}	
-	
+	}
+
 	protected static function _findItem($needles = null, $identifier = 'id')
 	{
 		$app		= JFactory::getApplication();
 		$menus		= $app->getMenu('site');
-		
+
 		$language	= isset($needles['language']) ? $needles['language'] : '*';
 
 		// Prepare the reverse lookup array.
@@ -164,7 +164,7 @@ abstract class ##Component##HelperRoute
 			}
 
 			$items = $menus->getItems($attributes, $values);
-			
+
 			foreach ($items as $item)
 			{
 				if (isset($item->query) && isset($item->query['view']))
@@ -190,8 +190,8 @@ abstract class ##Component##HelperRoute
 				}
 			}
 		}
-		
-		
+
+
 		if ($needles)
 		{
 			foreach ($needles as $view => $ids)

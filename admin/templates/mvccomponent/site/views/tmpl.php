@@ -16,7 +16,7 @@ defined('_JEXEC') or die('Restricted access');
 	<div>
 		<?php echo ucfirst($field); ?>: ##codestart## echo $this->item-><?php echo $field; ?>; ##codeend##
 	</div>
-		
+
 	<?php endforeach;?>
 </div>
  

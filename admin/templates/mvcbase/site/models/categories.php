@@ -37,8 +37,8 @@ class ##Component##ModelCategories extends JModelLegacy
 	private $_parent = null;
 
 	private $_items = null;
-		
-	protected $__state_set = null;	
+
+	protected $__state_set = null;
 
 	/**
 	 * Method to auto-populate the model state.
@@ -50,18 +50,18 @@ class ##Component##ModelCategories extends JModelLegacy
 	protected function populateState($ordering = null, $direction = null)
 	{
 		$app = JFactory::getApplication();
-		
-		$filter_extension = $app->getUserStateFromRequest($this->_context . '.filter.extension', 'extension', $this->_extension);		
+
+		$filter_extension = $app->getUserStateFromRequest($this->_context . '.filter.extension', 'extension', $this->_extension);
 		$this->setState('filter.extension', $filter_extension);
-		
+
 
 		// Get the parent id if defined.
 		$parentId = $app->input->getInt('id');
 		$this->setState('filter.parentId', $parentId);
-		
+
 		$params = $app->getParams();
 		$this->setState('params', $params);
-		
+
 		$this->setState('filter.published',	1);
 		$this->setState('filter.access',	true);
 	}
@@ -85,7 +85,7 @@ class ##Component##ModelCategories extends JModelLegacy
 		return parent::getState($property, $default );
 		//return $property === null ? $this->state : $this->state->get($property, $default);
 	}
-	
+
 	/**
 	 * Method to get a store id based on model configuration state.
 	 *
@@ -116,19 +116,19 @@ class ##Component##ModelCategories extends JModelLegacy
 	public function getItems()
 	{
 		if (!count($this->_items)) {
-			
+
 			$app = JFactory::getApplication();
 			$menu = $app->getMenu();
-			$active = $menu->getActive();			
-			$params = new JRegistry;			
+			$active = $menu->getActive();
+			$params = new JRegistry;
 			if ($active) {
 					$params->loadString($active->params);
 			}
-			
+
 			$options = array();
 			$options['extension'] = $this->getState('filter.extension', $this->_extension);
 			$options['countItems'] = $params->get('show_cat_items_cat', 1) || !$params->get('show_empty_categories_cat', 0);
-						
+
 			$categories = ##Component##Categories::getInstance('##Component##', $options);
 			$this->_parent = $categories->get($this->getState('filter.parentId', 'root'));
 			if (is_object($this->_parent)) {

@@ -31,7 +31,7 @@ div.width-60 fieldset,
 div.width-65 fieldset,
 div.width-70 fieldset,
 div.width-80 fieldset,
-div.width-100 fieldset { 
+div.width-100 fieldset {
 	background-color: #fff;
 	padding: 17px;
 }
@@ -65,7 +65,7 @@ fieldset ul.checklist {
 
 fieldset ul.checklist input,
 fieldset ul.checklist label {
-	float:none; 
+	float:none;
 }
 
 form label {
@@ -92,7 +92,7 @@ label#jform_fulltext-lbl {
 	margin-top: 15px;
 	width: 100%;
 }
- 
+
 fieldset.adminform select,
 select#jform_catid.inputbox {
 	margin-right:20px;
@@ -120,9 +120,9 @@ input.required.invalid, input.invalid {
 	background-color:#ddb1b1;
 	}
 
-input.required { 
-	background-color: #d5eeff; 
-	
+input.required {
+	background-color: #d5eeff;
+
 	}
 
 input#jform_title.inputbox,
@@ -288,7 +288,7 @@ fieldset.panelform-legacy label,
 fieldset.adminform-legacy label {
 	min-width: 150px;
 	float:left;
-	
+
 }
 /* JParameter classes on radio button labels  */
 fieldset.panelform-legacy label.radiobtn_jno,
@@ -309,7 +309,7 @@ fieldset.panelform-legacy label.radiobtn_on {
 	margin-top: 15px;
 }
 p.jform_desc {
-	clear:left;	
+	clear:left;
 }
 
 div#jform_ordering {

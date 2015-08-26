@@ -61,14 +61,14 @@ class JFormFieldModal_##Name## extends JFormField
 		$item = JTable::getInstance('##name##', 'Table');
 
 		$value = (int)  $this->value;
-		
+
 		if ($value) {
 			$item->load($value);
-			$title = $item-><?php echo $this->hident; ?>; 
+			$title = $item-><?php echo $this->hident; ?>;
 		} else {
 			$title = JText::_('Select a ##Name##');
 		}
-		
+
 		$title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
 
 		// The current user display field.

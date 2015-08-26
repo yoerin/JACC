@@ -60,28 +60,28 @@ endif;
 			</div>
 		<?php endif; ?>
 
-	
+
 
 			<?php echo $this->form->getInput('articletext'); ?>
-		<div class="clearfix"></div>	
+		<div class="clearfix"></div>
 		<div class="formelm-buttons">
 			<button class="btn"  type="button" onclick="Joomla.submitbutton('article.cancel')">
 				<?php echo JText::_('JCANCEL') ?>
 			</button>
-			
+
 			<button class="btn pull-right" type="button" onclick="Joomla.submitbutton('article.save')">
 				<?php echo JText::_('JSAVE') ?>
 			</button>
-			
+
 			</div>
 	</fieldset>
 	</div>
-	
+
 	<div class="span4">
 
 	<fieldset>
 		<legend><?php echo JText::_('COM_CONTENT_PUBLISHING'); ?></legend>
-		
+
 		<div class="formelm">
 		<?php echo $this->form->getLabel('created_by_alias'); ?>
 		<?php echo $this->form->getInput('created_by_alias'); ?>
@@ -103,7 +103,7 @@ endif;
 		</div>
 
 	<?php endif; ?>
-		
+
 		<?php if (is_null($this->item->id)):?>
 			<div class="form-note">
 			<p><?php echo JText::_('COM_CONTENT_ORDERING'); ?></p>
@@ -115,11 +115,11 @@ endif;
 		<input type="hidden" name="jform[access]" value="1"  />
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="return" value="<?php echo $this->return_page;?>" />
-		
+
 		<input type="hidden" name="jform[catid]" value="<?php echo $GLOBALS['main_category'] ?>"/>
-		
+
 		<?php echo JHtml::_( 'form.token' ); ?>
-	
+
 </form>
 <div class="clearfix"></div>
 </div>

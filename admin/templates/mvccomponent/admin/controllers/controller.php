@@ -24,12 +24,12 @@ class ##Component##Controller##Name## extends JControllerForm
 {
 	public function __construct($config = array())
 	{
-	
+
 		$this->view_item = '##name##';
 		$this->view_list = '##plural##';
 		parent::__construct($config);
-	}	
-	
+	}
+
 	/**
 	 * Proxy for getModel.
 	 *
@@ -42,8 +42,8 @@ class ##Component##Controller##Name## extends JControllerForm
 	public function getModel($name = '##Name##', $prefix = '##Component##Model', $config = array('ignore_request' => false))
 	{
 		$model = parent::getModel($name, $prefix, $config);
-	
+
 		return $model;
-	}	
+	}
 }// class
 ##codeend##

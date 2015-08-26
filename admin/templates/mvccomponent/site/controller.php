@@ -16,7 +16,7 @@ jimport('joomla.application.component.controller');
 /**
  * ##Component## Controller
  *
- * @package    
+ * @package
  * @subpackage Controllers
  */
 class ##Component##Controller extends JControllerLegacy
@@ -36,8 +36,8 @@ class ##Component##Controller extends JControllerLegacy
 
 	public function display($cachable = false, $urlparams = false)
 	{
-		$cachable	= true;	
-		<?php if($this->uses_categories): ?> 
+		$cachable	= true;
+		<?php if($this->uses_categories): ?>
 		$user		= JFactory::getUser();
 
 		$id    = $this->input->getInt('id', null);
@@ -69,10 +69,10 @@ class ##Component##Controller extends JControllerLegacy
 		$vName = $this->input->get('view', '##firstnames##');
 		$this->input->set('view', $vName);
 		$safeurlparams = array('id' => 'INT');
-		<?php endif; ?> 
+		<?php endif; ?>
 		return parent::display($cachable, $safeurlparams);
-	}	
-	
+	}
+
 
 }// class
 ##codeend##

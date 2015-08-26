@@ -7,7 +7,7 @@ jimport('joomla.plugin.plugin');
 
 class plg##Plugtype####Plugin## extends JPlugin
 {
-	
+
 	/**
 	 * Example store user method
 	 *
@@ -152,5 +152,5 @@ class plg##Plugtype####Plugin## extends JPlugin
 
 		return $success;
 	}
-    
+
 }

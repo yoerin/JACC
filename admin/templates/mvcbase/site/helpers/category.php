@@ -15,7 +15,7 @@ jimport('joomla.application.component.helper');
 
 jimport('joomla.application.categories');
 
-require_once(JPATH_ADMINISTRATOR.'/components/com_##component##/helpers/##component##.php');  
+require_once(JPATH_ADMINISTRATOR.'/components/com_##component##/helpers/##component##.php');
 /**
  * ##Component## Component Category Tree
  *

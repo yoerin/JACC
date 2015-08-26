@@ -18,7 +18,7 @@ jimport( 'joomla.application.component.controller' );
  */
 class ##Component##ControllerCategory extends JControllerLegacy
 {
-	
+
 	private $_context = "com_##component##_categories";
 	/**
 	 * Constructor.
@@ -28,13 +28,13 @@ class ##Component##ControllerCategory extends JControllerLegacy
 	 */
 	public function __construct($config = array())
 	{
-		
+
 
 		$this->_viewname = 'category';
 		$this->_mainmodel = 'category';
-		$this->_itemname = 'Category';  		
+		$this->_itemname = 'Category';
 		parent::__construct($config);
-		
+
 		// Register proxy tasks.
 		$this->registerTask('save2copy', 'save');
 		$this->registerTask('save2new', 'save');
@@ -42,7 +42,7 @@ class ##Component##ControllerCategory extends JControllerLegacy
 		$this->registerTask('cancel', 'cancel');
         $this->input = JFactory::getApplication()->input;
 	}
-	
+
 
 
 	/**
@@ -104,7 +104,7 @@ class ##Component##ControllerCategory extends JControllerLegacy
 	public function edit()
 	{
 		// Initialize variables.
-	
+
 		$app	= JFactory::getApplication();
         $pks	= $this->input->get('cid', array (), 'array');
 
@@ -131,10 +131,10 @@ class ##Component##ControllerCategory extends JControllerLegacy
 		}
 
 		// Check if we are adding for a particular extension
-		
+
 		// Push the new row id into the session.
 		$app->setUserState('com_##component##_categories.edit.category.id', $id);
-		
+
 		$app->setUserState('com_##component##_categories.edit.category.data', null);
 		$app->setUserState('com_##component##_categories.edit.category.type', null);
 
@@ -161,7 +161,7 @@ class ##Component##ControllerCategory extends JControllerLegacy
 		// Get the previous row id.
 		$previousId	= (int) $app->getUserState('com_##component##_categories.edit.category.id');
 		$extension = $app->getUserStateFromRequest('com_##component##_categories.filter.extension', 'extension');
-		
+
 
 		// If rows ids do not match, checkin previous row.
 		if ($model->checkin($previousId)) {
@@ -194,7 +194,7 @@ class ##Component##ControllerCategory extends JControllerLegacy
 		$model	= $this->getModel('Category');
 		$task	= $this->getTask();
 
-		
+
 		// Get the posted values from the request.
         $data	= $this->input->post->get('jform', array(), 'array');
 

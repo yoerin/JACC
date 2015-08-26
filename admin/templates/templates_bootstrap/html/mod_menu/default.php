@@ -58,7 +58,7 @@ foreach ($list as $i => &$item) :
 	}
 
 	$class .=  ($item->level == 1 && $prefix == 'top') ? ' dropdown' : '';
-	
+
 	if ($item->parent)
 	{
 		$class .= ' parent';
@@ -92,8 +92,8 @@ foreach ($list as $i => &$item) :
 			$ul_class =  ($prefix == 'top') ? 'dropdown-menu' : 'nav-child unstyled small';
 			echo '<ul class="'.$ul_class .'">';
 		}
-		
-		
+
+
 	}
 	// The next item is shallower.
 	elseif ($item->shallower)

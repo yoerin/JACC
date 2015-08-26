@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * @version		$Id: view.html.php 183 2014-02-17 16:17:50Z michel $
 * @package		##Component##

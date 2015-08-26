@@ -27,17 +27,17 @@ class ##Component##Model##plural## extends JModelList
             );
         }
 
-		parent::__construct($config);		
+		parent::__construct($config);
 	}
-	
+
 	protected function populateState($ordering = null, $direction = null)
 	{
 			parent::populateState();
 			$app = JFactory::getApplication();
             $config = JFactory::getConfig();
 			$id = $app->input->getInt('id', null);
-			$this->setState('##name##list.id', $id);			
-			
+			$this->setState('##name##list.id', $id);
+
 			// Load the filter state.
 			$search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
 			$this->setState('filter.search', $search);
@@ -46,14 +46,14 @@ class ##Component##Model##plural## extends JModelList
 			$value = $app->getUserStateFromRequest('global.list.limit', 'limit', $config->get('list_limit'));
 			$limit = $value;
 			$this->setState('list.limit', $limit);
-			
+
 			$value = $app->getUserStateFromRequest($this->context.'.limitstart', 'limitstart', 0);
 			$limitstart = ($limit != 0 ? (floor($value / $limit) * $limit) : 0);
 			$this->setState('list.start', $limitstart);
-			
+
 			$value = $app->getUserStateFromRequest($this->context.'.ordercol', 'filter_order', $ordering);
-			$this->setState('list.ordering', $value);			
-			<?php if($this->uses_categories): ?>	
+			$this->setState('list.ordering', $value);
+			<?php if($this->uses_categories): ?>
 			$categoryId = $this->getUserStateFromRequest($this->context . '.filter.category_id', 'filter_category_id', '');
 			$this->setState('filter.category_id', $categoryId);
 			<?php endif;?>
@@ -64,10 +64,10 @@ class ##Component##Model##plural## extends JModelList
 			$state = $this->getUserStateFromRequest($this->context . '.filter.state', 'filter_state', '', 'string');
 			$this->setState('filter.state', $state);
 		<?php endif; ?>
-			
+
 	}
-    <?php if($this->uses_categories): ?>	
-    	
+    <?php if($this->uses_categories): ?>
+
 	/**
 	 * Method to get the maximum ordering value for each category.
 	 */
@@ -85,9 +85,9 @@ class ##Component##Model##plural## extends JModelList
 			$this->cache['categoryorders'] = $db->loadAssocList('<?php echo $this->category_field; ?>', 0);
 		}
 		return $this->cache['categoryorders'];
-	}	
+	}
 	<?php endif;?>
-		
+
 	protected function getStoreId($id = '')
 	{
 		// Compile the store id.
@@ -99,8 +99,8 @@ class ##Component##Model##plural## extends JModelList
 		$id .= ':' . $this->getState('filter.state');
 		<?php endif; ?>
 		return parent::getStoreId($id);
-	}	
-	
+	}
+
 	/**
 	 * Method to get a JDatabaseQuery object for retrieving the data set from a database.
 	 *
@@ -108,21 +108,21 @@ class ##Component##Model##plural## extends JModelList
 	 */
 	protected function getListQuery()
 	{
-		
+
 		$db		= $this->getDbo();
-		$query	= $db->getQuery(true);			
+		$query	= $db->getQuery(true);
 		 <?php if($this->uses_categories): ?>
 		$catid = (int) $this->getState('filter.category_id', 1);
-		<?php endif; ?>	
+		<?php endif; ?>
 ##ifdefFieldaliasStart##
 		$query->select('a.*, '
 		. ' CASE WHEN CHAR_LENGTH(a.alias) THEN CONCAT_WS(\':\', a.id, a.alias) ELSE a.id END as slug');
 ##ifdefFieldaliasEnd##
-##ifnotdefFieldaliasStart##		
+##ifnotdefFieldaliasStart##
 		$query->select('a.*');
 ##ifnotdefFieldaliasEnd##
 		$query->from('##table## as a');
-	
+
 		 <?php if($this->uses_categories): ?>
 		// Filter by category.
 		$categoryId = $this->getState('filter.category_id');
@@ -132,12 +132,12 @@ class ##Component##Model##plural## extends JModelList
 		}
 		<?php endif; ?>
 		<?php if(count($this->searchableFields)):
-			
+
 		$wheres = array();
 		foreach($this->searchableFields as $field) {
 			$wheres[] = 'a.'.$field->get('key')." LIKE ' . \$search . ' ";
 		}
-		$searchquery = implode(' OR ', $wheres); 
+		$searchquery = implode(' OR ', $wheres);
 		?>
 		// Filter by search in title
 		$search = $this->getState('filter.search');
@@ -154,9 +154,9 @@ class ##Component##Model##plural## extends JModelList
 			}
 		}
 		<?php endif; ?>
-<?php if($this->publishedField): ?>		
+<?php if($this->publishedField): ?>
 		$published = $this->getState('filter.state');
-		
+
 		if (is_numeric($published))
 		{
 			$query->where('a.<?php echo $this->publishedField; ?> = ' . (int) $published);
@@ -165,14 +165,14 @@ class ##Component##Model##plural## extends JModelList
 		{
 			$query->where('(a.<?php echo $this->publishedField; ?> IN (0, 1))');
 		}
-<?php endif; ?>		
+<?php endif; ?>
 		// Add the list ordering clause.
 		$orderCol = $this->state->get('list.ordering', '<?php echo $this->defaultOrderField; ?>');
 		$orderDirn = $this->state->get('list.direction', 'ASC');
 		if(empty($orderCol)) $orderCol = '<?php echo $this->defaultOrderField; ?>';
-		if(empty($orderDirn)) $orderDirn = 'DESC'; 		
+		if(empty($orderDirn)) $orderDirn = 'DESC';
 		$query->order($db->escape($orderCol . ' ' . $orderDirn));
-							
+
 		return $query;
-	}	
+	}
 }

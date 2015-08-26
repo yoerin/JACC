@@ -456,7 +456,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 input[type="radio"],
-input[type="checkbox"] 
+input[type="checkbox"]
 select,
 input[type="file"] {
   height: 30px;
@@ -2021,15 +2021,15 @@ input[type="submit"].btn.btn-mini {
 }
 
 .toolbar [class^="icon-"],
-.toolbar [class*=" icon-"], 
+.toolbar [class*=" icon-"],
 #toolbar-box [class^="icon-"],
-#toolbar-box  [class*=" icon-"] 
+#toolbar-box  [class*=" icon-"]
 {
 	background-position: 0 0;
-    line-height: inherit;    
+    line-height: inherit;
 }
 .node [class^="icon-"],
-.node [class*=" icon-"], 
+.node [class*=" icon-"],
 .pagetitle{
 	height: auto;
     width: auto;

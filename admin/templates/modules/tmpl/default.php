@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * File name: $HeadURL: svn://tools.janguo.de/jacc/trunk/admin/templates/modules/tmpl/default.php $
  * Revision: $Revision: 147 $
@@ -7,7 +7,7 @@
  * @copyright	Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
  * @license ##license##
  */
-defined('_JEXEC') or die('Restricted access'); 
+defined('_JEXEC') or die('Restricted access');
 ?>
 <div class="##module##<?php echo $params->get( 'moduleclass_sfx' ) ?>">
 	Add some Content here

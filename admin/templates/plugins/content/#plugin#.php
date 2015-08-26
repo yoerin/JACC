@@ -11,7 +11,7 @@ jimport('joomla.plugin.plugin');
 
 class plg##Plugtype####Plugin## extends JPlugin
 {
-	
+
 	/**
 	 * Example after delete method.
 	 *
@@ -161,5 +161,5 @@ class plg##Plugtype####Plugin## extends JPlugin
 	public function onContentPrepare($context, &$article, &$params, $limitstart)
 	{
 		$app = JFactory::getApplication();
-	}    
+	}
 }

@@ -12,8 +12,8 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.view');
 
- 
-class ##Component##View##plural##  extends JViewLegacy 
+
+class ##Component##View##plural##  extends JViewLegacy
 {
 
 	protected $state = null;
@@ -21,13 +21,13 @@ class ##Component##View##plural##  extends JViewLegacy
 	protected $items = null;
 
 	protected $pagination = null;
-	
+
 	public function display($tpl = null)
 	{
-		
+
 		$app = JFactory::getApplication();
 		$params		= $app->getParams();
-		
+
 		$state 		= $this->get('State');
 		$items 		= $this->get('Items');
 		$pagination	= $this->get('Pagination');
@@ -47,8 +47,8 @@ class ##Component##View##plural##  extends JViewLegacy
 			$item->params = clone($params);
 			$item->params->merge($temp);
 		}
-		
-		
+
+
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{
@@ -61,13 +61,13 @@ class ##Component##View##plural##  extends JViewLegacy
 		$this->params     = &$params;
 		$this->pagination = &$pagination;
 		//Escape strings for HTML output
-		$this->pageclass_sfx = htmlspecialchars($params->get('pageclass_sfx'));		
-		
+		$this->pageclass_sfx = htmlspecialchars($params->get('pageclass_sfx'));
+
 		$this->_prepareDocument();
-		
+
 		parent::display($tpl);
 	}
-	
+
 /**
 	 * Prepares the document
 	 */
@@ -124,6 +124,6 @@ class ##Component##View##plural##  extends JViewLegacy
 			$this->document->setMetadata('robots', $this->params->get('robots'));
 		}
 
-	}	
+	}
 }
 ##codeend##

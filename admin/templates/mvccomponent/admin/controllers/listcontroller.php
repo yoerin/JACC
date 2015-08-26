@@ -8,7 +8,7 @@
 * @license 		##license##
 */
 
-// 
+//
 
 defined('_JEXEC') or die;
 
@@ -33,10 +33,10 @@ class ##Component##Controller##Plural## extends JControllerAdmin
 	{
 		$this->view_list = '##plural##';
 		parent::__construct($config);
-		
+
 	}
 
-	
+
 	/**
 	 * Proxy for getModel.
 	 *

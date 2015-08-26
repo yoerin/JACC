@@ -26,7 +26,7 @@ class Table##Name## extends JTable
 	 * @param object Database connector object
 	 * @since 1.0
 	 */
-	public function __construct(& $db) 
+	public function __construct(& $db)
 	{
 		parent::__construct('##table##', '##primary##', $db);
 	}
@@ -41,7 +41,7 @@ class Table##Name## extends JTable
 	* @since 1.5
 	*/
 	public function bind($array, $ignore = '')
-	{ 
+	{
 ##ifdefFieldparamsStart##
 		if ( isset( $array['params'] ) && is_array( $array['params'] ) )
         {
@@ -49,8 +49,8 @@ class Table##Name## extends JTable
 			$registry->loadArray($array['params']);
 			$array['params'] = (string) $registry;
         }
-##ifdefFieldparamsEnd##		
-		return parent::bind($array, $ignore);		
+##ifdefFieldparamsEnd##
+		return parent::bind($array, $ignore);
 	}
 
 	/**
@@ -73,42 +73,42 @@ class Table##Name## extends JTable
 
 		}
 ##ifdefFieldorderingEnd##
-##ifdefFieldcreatedStart##		
+##ifdefFieldcreatedStart##
 		if (!$this->created) {
 			$date = JFactory::getDate();
 			$this->created = $date->format("Y-m-d H:i:s");
-		}				
+		}
 ##ifdefFieldcreatedEnd##
-##ifdefFieldcreated_timeStart##		
+##ifdefFieldcreated_timeStart##
 		if (!$this->created_time) {
 			$date = JFactory::getDate();
 			$this->created = $date->format("Y-m-d H:i:s");
-		}				
+		}
 ##ifdefFieldcreated_timeEnd##
 		/** check for valid name */
 		/**
 		if (trim($this-><?php echo $this->hident ?>) == '') {
-			$this->setError(JText::_('Your ##Name## must contain a <?php echo $this->hident ?>.')); 
+			$this->setError(JText::_('Your ##Name## must contain a <?php echo $this->hident ?>.'));
 			return false;
 		}
-		**/		
+		**/
 ##ifdefFieldaliasStart##
 		if(empty($this->alias)) {
 			$this->alias = $this-><?php echo $this->hident ?>;
 		}
-		
+
 		$this->alias = JFilterOutput::stringURLSafe($this->alias);
-		
+
 		/** check for existing alias */
 		$query = 'SELECT '.$this->getKeyName().' FROM '.$this->_tbl.' WHERE alias = '.$this->_db->Quote($this->alias);
 		$this->_db->setQuery($query);
-		
+
 		$xid = intval($this->_db->loadResult());
 
-		if ($xid && $xid != intval($this->{$this->getKeyName()})) {		
+		if ($xid && $xid != intval($this->{$this->getKeyName()})) {
 			$this->setError(JText::_('Can\'t save to ##Name##. Name already exists'));
 			return false;
-		}      	
+		}
 
 ##ifdefFieldaliasEnd##
 		return true;

@@ -48,13 +48,13 @@ $document->addScriptDeclaration($script);
 				</div>
 				<div class="control-group">
 				<label class="control-label" for="contact_subject"> &nbsp;<?php echo JText::_( 'Message subject' );?>:
-				</label> 
+				</label>
 				<div class="controls">
 				<input type="text" name="subject" id="contact_subject"
 					size="30" class="inputbox" value="" />
-					</div> 
-				</div>	
-					<br /> 
+					</div>
+				</div>
+					<br />
 					<div class="control-group">
 					<label class="control-label"
 					id="contact_textmsg" for="contact_text"> &nbsp;<?php echo JText::_( 'Enter your message' );?>:
@@ -63,7 +63,7 @@ $document->addScriptDeclaration($script);
 				<textarea name="text" rows="7"  id="contact_text"
 					class="inputbox required"></textarea>
 					</div>
-				<?php if ($this->contact->params->get( 'show_email_copy' )) : ?>				
+				<?php if ($this->contact->params->get( 'show_email_copy' )) : ?>
 				</div>
 				<div class="control-group">
 				<label class="control-label"
@@ -71,7 +71,7 @@ $document->addScriptDeclaration($script);
 				</label>
 				<div class="controls">
 				 <input type="checkbox" name="email_copy"
-					id="contact_email_copy" value="1" /> 
+					id="contact_email_copy" value="1" />
 					</div>
 				</div>
 				<?php endif; ?>

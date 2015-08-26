@@ -9,19 +9,19 @@
 // no direct access
 defined('_JEXEC') or die;
 
-		
+
 		$document = JFactory::getDocument();
-		
-		$js = "	
+
+		$js = "
 			function ##component##GetCategories(object) {
 			var select_cat = $('catid');
 			var array_selected = new Array();
 			var array_selected_name = new Array();
-			for (var i = 0; i < select_cat.options.length; i++) { 
-            	if (select_cat.options[ i ].selected) { 
-					array_selected.push(select_cat.options[ i ].value);  
+			for (var i = 0; i < select_cat.options.length; i++) {
+            	if (select_cat.options[ i ].selected) {
+					array_selected.push(select_cat.options[ i ].value);
 					array_selected_name.push(select_cat.options[ i ].text)
-				}	
+				}
             }
             window.parent.document.getElementById(object + '_id').value = array_selected.join(',');
 			window.parent.document.getElementById(object + '_name').value = array_selected_name.join('\\n ');
@@ -30,11 +30,11 @@ defined('_JEXEC') or die;
 ";
 		JHTML::_('behavior.mootools');
 		$document->addScriptDeclaration($js);
-	
+
 		$values = explode(',', JFactory::getApplication()->input->get('value'));
-		
-	?>	
-		
+
+	?>
+
 		<form action="index.php?option=com_##component##&amp;task=category&amp;tmpl=component&amp;object=id" method="post" name="adminForm">
 				<table class="adminlist" cellspacing="1">
 			<thead>
@@ -53,5 +53,5 @@ defined('_JEXEC') or die;
 				</tr>
 			</tbody>
 
-			</table>			
+			</table>
 		</form>

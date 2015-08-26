@@ -21,6 +21,6 @@ jimport('joomla.application.component.controller');
  */
 class ##Component##Controller##Name## extends JControllerLegacy
 {
-		
+
 }// class
 ##codeend##

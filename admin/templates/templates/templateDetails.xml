@@ -6,13 +6,13 @@
 	<author>##author##</author>
 	<authorEmail>##email##</authorEmail>
 	<authorUrl>##website##</authorUrl>
-	<copyright>Copyright (C) ##year## ##author## Open Source Matters. All rights reserved.</copyright>	
+	<copyright>Copyright (C) ##year## ##author## Open Source Matters. All rights reserved.</copyright>
 	<license>##license##</license>
 	<version>##version##</version>
 	<description>
 	<![CDATA[
 	##description##
-	]]> 
+	]]>
 	</description>
 <files>
   <filename>index.php</filename>
@@ -24,10 +24,10 @@
   <folder>js</folder>
   <folder>css</folder>
   <folder>images</folder>
-  <folder>html</folder>  
+  <folder>html</folder>
   <folder>language</folder>
 </files>
-<positions>                          
+<positions>
   <position>position-1</position>
   <position>position-2</position>
   <position>position-3</position>
@@ -39,7 +39,7 @@
 <languages folder="language">
 	<language tag="en-GB">en-GB/en-GB.tpl_##template##.ini</language>
 	<language tag="de-DE">de-DE/de-DE.tpl_##template##.ini</language>
-</languages>          
+</languages>
 <config>
   <fields name="params">
     <fieldset name="basic">

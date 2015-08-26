@@ -41,7 +41,7 @@ function modChrome_navigation($module, &$params, &$attribs)
 {
 
 	$headerLevel = isset($attribs['headerLevel']) ? (int) $attribs['headerLevel'] : 3;
-	if (!empty ($module->content)) : ?>	
+	if (!empty ($module->content)) : ?>
 		<div class="moduletable-topnav navbar-inner <?php echo $params->get('moduleclass_sfx'); ?>">
 			<?php if ($module->showtitle) : ?>
 				<h<?php echo $headerLevel; ?> class="pull-left"><?php echo $module->title; ?></h<?php echo $headerLevel; ?>>

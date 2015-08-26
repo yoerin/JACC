@@ -19,7 +19,7 @@
 				required="true"
 			/>
 		</fieldset>
-	</fields>	
+	</fields>
 	<!-- Add fields to the parameters object for the layout. -->
 	<fields name="params">
 	</fields>

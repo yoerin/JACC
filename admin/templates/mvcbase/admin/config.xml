@@ -3,13 +3,13 @@
    <params>
    		<param name="example" type="text" default="example" label="Example" description="You can change this in components backend in the config.xml" />
    </params>
-   
+
 	<fieldset
 		name="Common"
 		label="Common"
 		description="Common">
 		<field name="example" type="text" default="example" label="Example" description="You can change this in components backend in the config.xml"  />
-	</fieldset>		   
+	</fieldset>
 	<fieldset
 		name="permissions"
 		label="JCONFIG_PERMISSIONS_LABEL"
@@ -25,5 +25,5 @@
 			filter="rules"
 			component="com_##component##"
 			section="component" />
-	</fieldset>	
+	</fieldset>
 </config>

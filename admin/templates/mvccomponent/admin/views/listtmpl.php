@@ -58,7 +58,7 @@ $sortFields = $this->getSortFields();
 	<div id="j-main-container">
 ##codestart## endif;##codeend##
 		<div id="filter-bar" class="btn-toolbar">
-			<div class="filter-search btn-group pull-left">				
+			<div class="filter-search btn-group pull-left">
 				<input type="text" name="filter_search" id="filter_search" value="##codestart## echo $this->escape($this->state->get('filter.search')); ##codeend##" />
 			</div>
 			<div class="btn-group pull-left">
@@ -87,7 +87,7 @@ $sortFields = $this->getSortFields();
 		</div>
 		<div class="clearfix"> </div>
 
-	
+
 <div id="editcell">
 	<table class="adminlist table table-striped" id="articleList">
 		<thead>
@@ -96,7 +96,7 @@ $sortFields = $this->getSortFields();
 				<th width="1%" class="nowrap center hidden-phone">
 						##codestart## echo JHtml::_('grid.sort', '<i class="icon-menu-2"></i>', 'ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ##codeend##
 				</th>
-			<?php endif; ?>		
+			<?php endif; ?>
 				<th width="20">
 					<input type="checkbox" name="checkall-toggle" value="" title="(##codestart## echo JText::_('JGLOBAL_CHECK_ALL'); ##codeend##" onclick="Joomla.checkAll(this)" />
 				</th>
@@ -105,7 +105,7 @@ $sortFields = $this->getSortFields();
 					##codestart## echo JHTML::_('grid.sort', '<?php echo ucFirst($field); ?>', 'a.<?php echo $field; ?>', $listDirn, $listOrder ); ##codeend##
 				</th>
 				<?php endforeach; ?>
-			</tr> 			
+			</tr>
 		</thead>
 		<tfoot>
 		<tr>
@@ -116,7 +116,7 @@ $sortFields = $this->getSortFields();
 	</tfoot>
 	<tbody>
 ##codestart##
-  if (count($this->items)) : 
+  if (count($this->items)) :
   		foreach ($this->items as $i => $item) :
 				<?php if($this->hasOrdering): ?>
 				$ordering  = ($listOrder == 'ordering');
@@ -125,42 +125,42 @@ $sortFields = $this->getSortFields();
   				$canCheckin = $user->authorise('core.manage',     'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
   				<?php endif;?>
 				<?php if($this->uses_categories):?>
-				$item->cat_link = JRoute::_('index.php?option=com_categories&extension=##com_component##&task=edit&type=other&cid[]='. $item-><?php echo $this->category_field; ?>);				
+				$item->cat_link = JRoute::_('index.php?option=com_categories&extension=##com_component##&task=edit&type=other&cid[]='. $item-><?php echo $this->category_field; ?>);
 				$canCreate  = $user->authorise('core.create',     '##com_component##.##name##.category.' . $item-><?php echo $this->category_field; ?>);
-				$canEdit    = $user->authorise('core.edit',       '##com_component##.##name##.category.' . $item-><?php echo $this->category_field; ?>);				
+				$canEdit    = $user->authorise('core.edit',       '##com_component##.##name##.category.' . $item-><?php echo $this->category_field; ?>);
 				$canChange  = $user->authorise('core.edit.state', '##com_component##.##name##.category.' . $item-><?php echo $this->category_field; ?>) <?php if ($this->hasCheckin): ?>&& $canCheckin<?php endif; ?>;
 				<?php else: ?>
 				$canCreate  = $user->authorise('core.create');
-				$canEdit    = $user->authorise('core.edit');				
-				$canChange  = $user->authorise('core.edit.state'); 				
+				$canEdit    = $user->authorise('core.edit');
+				$canChange  = $user->authorise('core.edit.state');
 				<?php endif;?>
-	
+
 				$disableClassName = '';
 				$disabledLabel	  = '';
 				if (!$saveOrder) {
 					$disabledLabel    = JText::_('JORDERINGDISABLED');
 					$disableClassName = 'inactive tip-top';
-				} 
-	
+				}
+
  				$onclick = "";
-  	
+
     			if (JFactory::getApplication()->input->get('function', null)) {
     				$onclick= "onclick=\"window.parent.jSelect##Name##_id('".$item->id."', '".$this->escape($item-><?php echo $this->hident ?>)."', '','##primary##')\" ";
-    			}  	
-    
+    			}
+
  				$link = JRoute::_( 'index.php?option=##com_component##&view=##name##&task=##name##.edit&id='. $item->##primary## );
- 	
+
 <?php if ($this->hasCheckin): ?>
  				$checked = JHTML::_('grid.checkedout', $item, $i );
-<?php else: ?> 				
- 	
+<?php else: ?>
+
  				$checked = JHTML::_('grid.id', $i, $item->##primary##);
-<?php endif; ?> 	 	
+<?php endif; ?>
   		##codeend##
 				<tr class="row##codestart## echo $i % 2; ##codeend##"<?php if($this->uses_categories): ?> sortable-group-id="##codestart##  echo $item-><?php echo $this->category_field; ?>; ##codeend##<?php endif;?>">
 			<?php if($this->hasOrdering): ?>
 						<td class="order nowrap center hidden-phone">
-					##codestart## if ($canChange) : ##codeend##					
+					##codestart## if ($canChange) : ##codeend##
 						<span class="sortable-handler hasTooltip ##codestart## echo $disableClassName; ##codeend##" title="##codestart## echo $disabledLabel; ##codeend##">
 							<i class="icon-menu"></i>
 						</span>
@@ -172,9 +172,9 @@ $sortFields = $this->getSortFields();
 						</span>
 					##codestart## endif; ##codeend##
 					</td>
-			<?php endif; ?>		      
+			<?php endif; ?>
         			<td>##codestart## echo $checked;  ##codeend##</td>
-        				
+
 			<?php foreach ($this->listfieldlist as $field): ?>
 			<?php if($field == $this->hident):?>
 			        <td class="nowrap has-context">
@@ -190,7 +190,7 @@ $sortFields = $this->getSortFields();
 							##codestart##  else : ?>
 								##codestart##  echo $this->escape($item-><?php echo $this->hident; ?>); ##codeend##
 							##codestart##  endif; ##codeend##
-							
+
 						</div>
 						<div class="pull-left">
 							##codestart##
@@ -202,7 +202,7 @@ $sortFields = $this->getSortFields();
 									JHtml::_('dropdown.unpublish', 'cb' . $i, '##plural##.');
 								else :
 									JHtml::_('dropdown.publish', 'cb' . $i, '##plural##.');
-								endif;									
+								endif;
 								JHtml::_('dropdown.divider');
 
 								if ($archived) :
@@ -210,12 +210,12 @@ $sortFields = $this->getSortFields();
 								else :
 									JHtml::_('dropdown.archive', 'cb' . $i, '##plural##.');
 								endif;
-								
+
 								if ($trashed) :
 									JHtml::_('dropdown.untrash', 'cb' . $i, '##plural##.');
 								else :
 									JHtml::_('dropdown.trash', 'cb' . $i, '##plural##.');
-								endif;								
+								endif;
 								<?php endif; ?>
 								<?php if ($this->hasCheckin): ?>
 								if ($item->checked_out) :
@@ -231,8 +231,8 @@ $sortFields = $this->getSortFields();
 			<?php elseif($field == $this->publishedField): ?>
 						<td>
 							##codestart## echo JHtml::_('jgrid.published', $item-><?php echo $this->publishedField; ?>, $i, '##plural##.', $canChange, 'cb'); ##codeend##
-						</td>		
-			<?php else:?> 		
+						</td>
+			<?php else:?>
 						<td>##codestart## echo $item-><?php echo $field; ?>; ##codeend##</td>
 			<?php endif;?>
 		<?php endforeach;?>

@@ -8,7 +8,7 @@
 * @license ###license##
 */
 
-// 
+//
 
 defined('_JEXEC') or die;
 
@@ -68,12 +68,12 @@ class ##Component##Model##plural## extends JModelList
 			$this->context .= '.' . $layout;
 		}
 <?php if($this->uses_categories): ?>
-		$category = $this->getUserStateFromRequest($this->context . '.category', 'category'); 
+		$category = $this->getUserStateFromRequest($this->context . '.category', 'category');
 		$this->setState('filter.category', $category);
 <?php endif;?>
 		$search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
 		$this->setState('filter.search', $search);
-<?php if($this->publishedField): ?>	
+<?php if($this->publishedField): ?>
 		$published = $this->getUserStateFromRequest($this->context . '.filter.published', 'filter_published', '');
 		$this->setState('filter.published', $published);
 <?php endif;?>
@@ -101,7 +101,7 @@ class ##Component##Model##plural## extends JModelList
 <?php if($this->uses_categories): ?>
 		$id .= ':' . $this->getState('filter.category');
 <?php endif; ?>
-<?php if($this->publishedField): ?>		
+<?php if($this->publishedField): ?>
 		$id .= ':' . $this->getState('filter.published');
 <?php endif;?>
 
@@ -122,14 +122,14 @@ class ##Component##Model##plural## extends JModelList
 		$user = JFactory::getUser();
 		$app = JFactory::getApplication();
 
-		$select_fields = $this->getState('list.select', 'a.*'); 
-		
+		$select_fields = $this->getState('list.select', 'a.*');
+
 		// Select the required fields from the table.
 		$query->select( $select_fields);
-		
+
 		$query->from('##table## AS a');
 
-<?php if($this->publishedField): ?>	
+<?php if($this->publishedField): ?>
 		// Filter by published state
 		$published = $this->getState('filter.published');
 		if (is_numeric($published))
@@ -140,8 +140,8 @@ class ##Component##Model##plural## extends JModelList
 		{
 			$query->where('(a.<?php echo $this->publishedField; ?> = 0 OR a.<?php echo $this->publishedField; ?> = 1)');
 		}
-<?php endif; ?>	
-<?php if($this->uses_categories): ?>     
+<?php endif; ?>
+<?php if($this->uses_categories): ?>
 
 		// Filter by a single or group of categories.
 		$categoryId = $this->getState('filter.category');
@@ -155,19 +155,19 @@ class ##Component##Model##plural## extends JModelList
 			$categoryId = implode(',', $categoryId);
 			$query->where('a.<?php echo $this->category_field ?> IN (' . $categoryId . ')');
 		}
-<?php endif; ?>   
+<?php endif; ?>
 		// Filter by search in name.
 		$search = $this->getState('filter.search');
 		if (!empty($search))
 		{
-			$query->where('LOWER(a.name) LIKE ' . $this->_db->Quote('%' . $search . '%'));		
+			$query->where('LOWER(a.name) LIKE ' . $this->_db->Quote('%' . $search . '%'));
 		}
 
 
 		// Add the list ordering clause.
 		$orderCol = $this->state->get('list.ordering', 'a.<?php echo $this->hident; ?>');
 		$orderDirn = $this->state->get('list.direction', 'asc');
-		
+
 		$query->order($db->escape($orderCol . ' ' . $orderDirn));
 
 		return $query;

@@ -13,12 +13,12 @@
 	<fields name="request">
 		<fieldset name="request"
 			addfieldpath="/administrator/components/com_categories/models/fields">
-			<field name="category" 
+			<field name="category"
 				   type="categoryedit" label="JCATEGORY"
-				   required="true" 
-				   extension="##com_component##.##name##" 
+				   required="true"
+				   extension="##com_component##.##name##"
 				   description="JFIELD_CATEGORY_DESC"
-				   class="inputbox" 				   
+				   class="inputbox"
 				   size="1">
 				<option value="all">COM_##COMPONENT##_ALL_CATEGORIES</option>
 			</field>

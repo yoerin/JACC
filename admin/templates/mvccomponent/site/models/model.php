@@ -18,13 +18,13 @@ JTable::addIncludePath(JPATH_ROOT.'/administrator/components/com_##component##/t
  * ##Component##Model##Name##
  * @author $Author$
  */
- 
- 
-class ##Component##Model##Name##  extends JModelItem { 
 
-	
-	
-	protected $context = 'com_##component##.##name##';   
+
+class ##Component##Model##Name##  extends JModelItem {
+
+
+
+	protected $context = 'com_##component##.##name##';
 	/**
 	 * Method to auto-populate the model state.
 	 *
@@ -43,7 +43,7 @@ class ##Component##Model##Name##  extends JModelItem {
 		$this->setState('##name##.##primary##', $id);
 
 		// Load the parameters.
-		
+
 		$this->setState('params', $params);
 	}
 
@@ -54,7 +54,7 @@ class ##Component##Model##Name##  extends JModelItem {
 
 		return parent::getStoreId($id);
 	}
-	
+
 	/**
 	 * Method to get an ojbect.
 	 *
@@ -65,7 +65,7 @@ class ##Component##Model##Name##  extends JModelItem {
 	public function &getItem($id = null)
 	{
 		if ($this->_item === null) {
-			
+
 			$this->_item = false;
 
 			if (empty($id)) {
@@ -78,10 +78,10 @@ class ##Component##Model##Name##  extends JModelItem {
 
 			// Attempt to load the row.
 			if ($table->load($id)) {
-				
+
 				// Check published state.
 				if ($published = $this->getState('filter.published')) {
-					
+
 					if ($table->state != $published) {
 						return $this->_item;
 					}
@@ -89,13 +89,13 @@ class ##Component##Model##Name##  extends JModelItem {
 
 				// Convert the JTable to a clean JObject.
 				$this->_item = JArrayHelper::toObject($table->getProperties(1), 'JObject');
-				
+
 			} else if ($error = $table->getError()) {
-				
+
 				$this->setError($error);
 			}
 		}
-##ifdefFieldparamsStart##		
+##ifdefFieldparamsStart##
 		// Convert parameter fields to objects.
 		$registry = new JRegistry;
 		$registry->loadString($this->_item->params);
@@ -108,6 +108,6 @@ class ##Component##Model##Name##  extends JModelItem {
 
 		return $this->_item;
 	}
-		
+
 }
 ##codeend##

@@ -40,53 +40,53 @@ Joomla.submitbutton = function(task)
 	 	<div class="col ##codestart## if(version_compare(JVERSION,'3.0','lt')):  ##codeend##width-60  ##codestart## endif; ##codeend##span8 form-horizontal fltlft">
 		  <fieldset class="adminform">
 			<legend>##codestart## echo JText::_( 'Details' ); ##codeend##</legend>
-		<?php if (isset($this->formfield['details'])): 
+		<?php if (isset($this->formfield['details'])):
 								$fields = $this->formfield['details'];
 								foreach ($fields as $field) {
-									$this->field = $field;									
+									$this->field = $field;
 									echo $this->loadTemplate('mvccomponent/admin/views/formfields.php');
 								}
 		?>
-		<?php endif; ?>			
-		<?php if (isset($this->formfield['desc'])): 
+		<?php endif; ?>
+		<?php if (isset($this->formfield['desc'])):
 								$fields = $this->formfield['desc'];
 								foreach ($fields as $field) {
 									$this->field = $field;
 									echo $this->loadTemplate('mvccomponent/admin/views/formfields.php');
 								}
 		?>
-		<?php endif; ?>			
-		<?php if (isset($this->formfield['subdesc'])): 
+		<?php endif; ?>
+		<?php if (isset($this->formfield['subdesc'])):
 								$fields = $this->formfield['subdesc'];
 								foreach ($fields as $field) {
 									$this->field = $field;
 									echo $this->loadTemplate('mvccomponent/admin/views/formfields.php');
 								}
 		?>
-		<?php endif; ?>	
-						
-          </fieldset>                      
+		<?php endif; ?>
+
+          </fieldset>
         </div>
         <div class="col ##codestart## if(version_compare(JVERSION,'3.0','lt')):  ##codeend##width-30  ##codestart## endif; ##codeend##span2 fltrgt">
-		<?php if (isset($this->formfield['params'])): ?>        
+		<?php if (isset($this->formfield['params'])): ?>
 			<fieldset class="adminform">
 				<legend>##codestart## echo JText::_( 'Parameters' ); ##codeend##</legend>
-		<?php 
+		<?php
 								$fields = $this->formfield['params'];
 								foreach ($fields as $field) {
 									$this->field = $field;
 									echo $this->loadTemplate('mvccomponent/admin/views/formfields.php');
 								}
-		?>								
+		?>
 			</fieldset>
-		<?php endif; ?>	        
-<?php if (isset($this->formfield['addparams'])): ?>     		
+		<?php endif; ?>
+<?php if (isset($this->formfield['addparams'])): ?>
 			<fieldset class="adminform">
 				<legend>##codestart## echo JText::_( 'Advanced Parameters' ); ##codeend##</legend>
-				<table>				
-				##codestart## 
+				<table>
+				##codestart##
 					$fieldSets = $this->form->getFieldsets('params');
-					foreach($fieldSets  as $name =>$fieldset):  ##codeend##				
+					foreach($fieldSets  as $name =>$fieldset):  ##codeend##
 				##codestart## foreach ($this->form->getFieldset($name) as $field) : ##codeend##
 					##codestart## if ($field->hidden):  ##codeend##
 						##codestart## echo $field->input;  ##codeend##
@@ -102,12 +102,12 @@ Joomla.submitbutton = function(task)
 				##codestart## endif;  ##codeend##
 				##codestart## endforeach;  ##codeend##
 			##codestart## endforeach;  ##codeend##
-			</table>			
-			</fieldset>									
+			</table>
+			</fieldset>
 
 <?php endif; ?>
 
-        </div>                   
+        </div>
 		<input type="hidden" name="option" value="##com_component##" />
 	    <input type="hidden" name="cid[]" value="##codestart## echo $this->item->##primary## ##codeend##" />
 		<input type="hidden" name="task" value="" />

@@ -11,7 +11,7 @@ jimport('joomla.plugin.plugin');
 
 class plg##Plugtype####Plugin## extends JPlugin
 {
-	
+
 	/**
 	 * Handle post extension install update sites
 	 *
@@ -95,5 +95,5 @@ class plg##Plugtype####Plugin## extends JPlugin
 	{
 		JError::raiseWarning(-1, 'plgExtension##Plugin##::onExtensionBeforeUpdate: Updating a '. $type);
 	}
-    
+
 }

@@ -247,11 +247,11 @@ html>body .moduletable_menu li ul li a {
 }
 
 .moduletable_menu li a:hover {
-	
+
 }
 
 .moduletable_menu li.current>a {
-	
+
 }
 
 /* ======= TOPMENU =========== */
@@ -286,11 +286,11 @@ html>body .moduletable_menu li ul li a {
 }
 
 #topmenu .menu li.active a {
-	
+
 }
 
 #topmenu .menu li a:hover {
-	
+
 }
 
 /* ----------- FOOTER -------------- */
@@ -301,10 +301,10 @@ html>body .moduletable_menu li ul li a {
 #footer div.moduletable {
 }
 
-#footer a  { 
-	display:block; 
-	float:left; 
-	text-decoration:none; 
+#footer a  {
+	display:block;
+	float:left;
+	text-decoration:none;
 }
 
 
@@ -490,7 +490,7 @@ div.pagination li {
 }
 
 span.pagenav {
-	
+
 }
 
 div#content div.pagination p.counter {
@@ -501,7 +501,7 @@ div#content div.pagination p.counter {
 /* --------------------- LOGIN/LOGOUT --------------------- */
 div.login fieldset {
 	border: 0;
-	padding-left:0px;	
+	padding-left:0px;
 }
 
 div.login-fields {

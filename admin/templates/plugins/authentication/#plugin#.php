@@ -11,14 +11,14 @@ jimport('joomla.plugin.plugin');
 
 class plg##Plugtype####Plugin## extends JPlugin
 {
-	
+
     //Just an example
-    
+
     /**
 	function onUserAuthenticate($credentials, $options, &$response)
 	{
 	}
-	
+
 	**/
-    
+
 }

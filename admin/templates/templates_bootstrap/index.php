@@ -3,7 +3,7 @@
  * @version		$Id: index.php 190 2014-06-27 14:11:21Z michel $
  * @copyright	Copyright (C) ##year##, ##author##. All rights reserved.
  * @license ###license##
- */ 
+ */
 defined( '_JEXEC' ) or die;
 
 $input = JFactory::getApplication()->input;
@@ -74,8 +74,8 @@ $header_desc = $this->params->get("sitedescription", "");
 					<?php endif; ?>
 					<div class="clearfix"></div>
 				</div>
-			</div>		
-			<jdoc:include type="modules" name="position-1" style="xhtml" />			
+			</div>
+			<jdoc:include type="modules" name="position-1" style="xhtml" />
 			<div class="navigation">
 				<div class="container">
 					<div id="topmenu">
@@ -90,10 +90,10 @@ $header_desc = $this->params->get("sitedescription", "");
 				<div class="row-fluid">
 					<div class="span<?php echo $leftcols; ?> left-col">
 						<jdoc:include type="message" />
-						<jdoc:include type="modules" name="position-2" style="xhtml" />						
+						<jdoc:include type="modules" name="position-2" style="xhtml" />
 						<jdoc:include type="component" />
 						<jdoc:include type="modules" name="position-3" style="xhtml" />
-						<jdoc:include type="modules" name="position-4" style="xhtml" />													
+						<jdoc:include type="modules" name="position-4" style="xhtml" />
 					</div>
 					<?php if($showRightColumn): ?>
 						<div class="span<?php echo $rightcols; ?> right-col">
@@ -101,16 +101,16 @@ $header_desc = $this->params->get("sitedescription", "");
 							<jdoc:include type="modules" name="position-6" style="xhtml" />
 							<jdoc:include type="modules" name="position-7" style="xhtml" />
 						</div>
-					<?php endif;?>	
+					<?php endif;?>
 				</div>
-			</div>			
-		</div>		
+			</div>
+		</div>
 	<div class="footer">
 		<div class="container">
 			<hr />
 			<jdoc:include type="modules" name="footer" style="none" />
 		</div>
 	</div>
-	<jdoc:include type="modules" name="debug" style="none" />				
-	</div>	
+	<jdoc:include type="modules" name="debug" style="none" />
+	</div>
 </body>

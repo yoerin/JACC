@@ -12,8 +12,8 @@ defined('_JEXEC') or die('Restricted access');
 
 class mod##Module##Helper
 {
-    static public function getItem($params) {
-        $css_class = $params->get('classname');
-        return "";
-    }
+	static public function getItem($params) {
+		$css_class = $params->get('classname');
+		return "";
+	}
 }

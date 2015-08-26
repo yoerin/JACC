@@ -23,6 +23,6 @@ replace the line '@import "black/allstart.less";' with '@import "myown/allstart.
 
 Do the same replacement
 
-Now go to styles/myown/, check all the less files in the folder, and define your own values.  It's recommended to start with allstart.less... 
-  
+Now go to styles/myown/, check all the less files in the folder, and define your own values.  It's recommended to start with allstart.less...
+
 After you may want to compile the less by replacing "black" in the first chapter with "myown" :.-)

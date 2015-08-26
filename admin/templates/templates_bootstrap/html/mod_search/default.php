@@ -9,8 +9,8 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			    if ($imagebutton) :
 			        $button = '<input type="image" value="'.$button_text.'" class="button'.$moduleclass_sfx.'" src="'.$img.'" onclick="this.form.searchword.focus();"/>';
 			    else :
-			        $button = ' <button class="btn btn-inverse" type="submit" onclick="this.form.searchword.focus();"> <i class="icon-search icon-white"></i> </button>'; 
-			    
+			        $button = ' <button class="btn btn-inverse" type="submit" onclick="this.form.searchword.focus();"> <i class="icon-search icon-white"></i> </button>';
+
 			    endif;
 			endif;
 

@@ -2,7 +2,7 @@
 /**
  * @version		$Id: imageup.php 187 2014-03-05 15:20:43Z michel $
  * @copyright	Copyright (C) ##year##, ##author##. All rights reserved.
- * @license ###license## 
+ * @license ###license##
  */
 
 defined('JPATH_BASE') or die;
@@ -49,7 +49,7 @@ class JFormFieldImageup extends JFormField
 	private function _addJs($id)
 	{
 		static $deletefunction;
-		
+
 		$js = "new JSOneClickUpload('".$this->id."uploader_button',{
 					url: '".JUri::base()."',
 					uploadFieldName: 'image',
@@ -76,9 +76,9 @@ class JFormFieldImageup extends JFormField
         			document.getElementById(id + 'previewimage').src = noImage;
         			document.getElementById(id).value = '';
         		}";
-		 
+
 			$js .= $deletefunction;
-		}		
+		}
 		$document = JFactory::getDocument();
 		$document->addScript(JURI::root(true).'/administrator/components/com_##component##/assets/oneclickupload.js');
 		$document->addScriptDeclaration($js);

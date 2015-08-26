@@ -92,8 +92,8 @@ class JTable##Component##Category extends JTableNested
 	public function __construct(&$db)
 	{
 		parent::__construct('#__##component##_categories', 'id', $db);
-		
-		$this->access = version_compare(JVERSION,'3.0','lt') ? (int) JFactory::getConfig()->getValue('access') : (int) JFactory::getConfig()->get('access');		
+
+		$this->access = version_compare(JVERSION,'3.0','lt') ? (int) JFactory::getConfig()->getValue('access') : (int) JFactory::getConfig()->get('access');
 	}
 
 	/**
@@ -120,7 +120,7 @@ class JTable##Component##Category extends JTableNested
 		return $this->title;
 	}
 
-	
+
 
 	/**
 	 * Method to delete a row from the database table by primary key value.
@@ -141,8 +141,8 @@ class JTable##Component##Category extends JTableNested
 		if ($pk === null) {
 			return false;
 		}
-		
-	
+
+
 
 		// Delete the row by primary key.
 		$this->_db->setQuery(
@@ -159,7 +159,7 @@ class JTable##Component##Category extends JTableNested
 		}
 
 		return true;
-	}	
+	}
 	/**
 	 * Get the parent asset id for the record
 	 *
@@ -168,10 +168,10 @@ class JTable##Component##Category extends JTableNested
 	protected function _getAssetParentId()
 	{
 		// Initialize variables.
-	
+
 		$assetId = null;
 		$query = $this->_db->getQuery(true);
-		
+
 		// This is a category under a category.
 		if ($this->parent_id > 1) {
 			// Build the query to get the asset id for the parent category.
@@ -205,7 +205,7 @@ class JTable##Component##Category extends JTableNested
 			return parent::_getAssetParentId();
 		}
 	}
-	
+
 	/**
 	 * Overloaded bind function.
 	 *
@@ -230,15 +230,15 @@ class JTable##Component##Category extends JTableNested
 			$array['metadata'] = (string)$registry;
 		}
 
- 
+
 		if (isset($array['rules']) && is_array($array['rules'])) {
 		    $rules = new JRules($array['rules']);
-		    $this->setRules($rules);			
-        } 
+		    $this->setRules($rules);
+        }
 
 		return parent::bind($array, $ignore);
-	}	
-	
+	}
+
 	/**
 	 * Override check function
 	 *

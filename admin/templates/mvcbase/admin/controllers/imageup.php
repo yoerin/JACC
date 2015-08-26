@@ -16,17 +16,17 @@ jimport('joomla.application.component.controller');
 /**
  * ##Component## Image Controller
  *
- * @package ##Component## 
+ * @package ##Component##
  * @subpackage Controllers
  */
- 
+
 class ##Component##ControllerImageup extends JControllerLegacy
 {
 	/**
 	 * Constructor
 	 */
-	 
-	public function __construct($config = array ()) 
+
+	public function __construct($config = array ())
 	{
 		parent::__construct($config);
 
@@ -51,14 +51,14 @@ class ##Component##ControllerImageup extends JControllerLegacy
 		jimport('joomla.filesystem.file');
 		jimport('joomla.filesystem.folder');
 		$file['name']	= strtolower(JFile::makeSafe($file['name']));
-		
-		//create the folder, if not exists 
+
+		//create the folder, if not exists
 		$folder_path = JPath::clean(JPATH_ROOT.'/images/'.$folder);
-		if (!JFolder::exists($folder_path)) JFolder::create($folder_path); 
+		if (!JFolder::exists($folder_path)) JFolder::create($folder_path);
 
 		if (isset($file['name'])) {
 			$filepath = JPath::clean(JPATH_ROOT.'/images/'.$folder.'/'.strtolower($file['name']));
-			
+
 			$imageTypes = 'gif|jpg|png|jpeg';
 			$isImage = preg_match("/$imageTypes/i",$file['name']);
 			if(!$isImage) {
@@ -71,21 +71,21 @@ class ##Component##ControllerImageup extends JControllerLegacy
 			} else {
 
 					$extension = JFile::getExt($file['name']);
-					
+
 					$basename = JFile::stripExt($file['name']);
-					
+
 					$imgwidth1 = $config->get('imgwidth1',280);
-					$imgheight1 = $config->get('imgheight1',320);						
-					
-					$thumb = $folder_path.'/'.$basename."_thumb.".$extension;		
+					$imgheight1 = $config->get('imgheight1',320);
+
+					$thumb = $folder_path.'/'.$basename."_thumb.".$extension;
 					$thumbm = $folder_path.'/'.$basename."_thumbm.".$extension;
 					$thumbs = $folder_path.'/'.$basename."_thumbs.".$extension;
 					$uri =  str_replace(JPATH_ROOT,'',$folder_path).'/'.$basename.".".$extension;
-					$urithumb = str_replace(JPATH_ROOT,'',$folder_path).'/'.$basename."_thumb.".$extension;							
+					$urithumb = str_replace(JPATH_ROOT,'',$folder_path).'/'.$basename."_thumb.".$extension;
 					$urithumbm = str_replace(JPATH_ROOT,'',$folder_path).'/'.$basename."_thumbm.".$extension;
-					$urithumbs = str_replace(JPATH_ROOT,'',$folder_path).'/'.$basename."_thumbs.".$extension; 
+					$urithumbs = str_replace(JPATH_ROOT,'',$folder_path).'/'.$basename."_thumbs.".$extension;
 					//TODO: In die Preferences
-	
+
 					self::_resize($imgwidth1, $imgheight1, $filepath, $thumb);
 					self::_resize($config->get('imgwidth2',120), $config->get('imgheight2',160),$filepath, $thumbm);
 					self::_resize($config->get('imgwidth3',60), $config->get('imgheight3',80), $filepath, $thumbs);
@@ -97,8 +97,8 @@ class ##Component##ControllerImageup extends JControllerLegacy
 	                            array('uri'=>$urithumbm, 'name'=>$basename."_thumbm.".$extension),
 	                            'thumbs' =>
 	                            array('uri'=>$urithumbs, 'name'=>$basename."_thumbs.".$extension)
-	                            );         
-                    ob_clean();	                            
+	                            );
+                    ob_clean();
 					print json_encode($array);
 					exit;
 
@@ -108,7 +108,7 @@ class ##Component##ControllerImageup extends JControllerLegacy
 			exit;
 		}
 	}
-	
+
 	static function _resize($forcedwidth, $forcedheight, $sourcefile, $destfile) {
 		jimport('joomla.filesystem.file');
 		$fw = $forcedwidth;
@@ -149,7 +149,7 @@ class ##Component##ControllerImageup extends JControllerLegacy
 					break;
 				case 'jpg':
 					$saved = $func2($img_dst,  $destfile, 90);
-					 
+
 					break;
 			}
 
@@ -163,5 +163,5 @@ class ##Component##ControllerImageup extends JControllerLegacy
 			JFile::copy($sourcefile, $destfile);
 		}
 	}
-	
+
 }

@@ -11,7 +11,7 @@ jimport('joomla.plugin.plugin');
 
 class plg##Plugtype####Plugin## extends JPlugin
 {
-	
+
     /**
      * Constructor.
      *
@@ -59,5 +59,5 @@ class plg##Plugtype####Plugin## extends JPlugin
     {
         return array();
     }
-    
+
 }

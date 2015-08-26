@@ -39,7 +39,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 	<table class="table table-striped table-condensed">
 		<thead>
-			<tr>				
+			<tr>
 				<?php foreach ($this->listfieldlist as $field): ?>
 				<th class="title">
 					##codestart## echo JHTML::_('grid.sort', '<?php echo ucFirst($field); ?>', 'a.<?php echo $field; ?>', $listDirn, $listOrder ); ##codeend##
@@ -64,7 +64,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 					<a class="pointer" onclick="if (window.parent) window.parent.##codestart## echo $this->escape($function);##codeend##('##codestart## echo $item->id; ##codeend##', '##codestart## echo $this->escape(addslashes($item->name)); ##codeend##');">
 						##codestart## echo $this->escape($item-><?php echo $field; ?>); ##codeend##</a>
 				</td>
-				<?php else:?> 		
+				<?php else:?>
 				<td>##codestart## echo $item-><?php echo $field; ?>; ##codeend##</td>
 				<?php endif;?>
 			<?php endforeach;?>
