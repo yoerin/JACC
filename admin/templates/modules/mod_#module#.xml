@@ -18,7 +18,8 @@
 	</files>
 	<languages>
 		<language tag="en-GB">language/en-GB.mod_##module##.ini</language>
-    	<language tag="de-DE">language/de-DE.mod_##module##.ini</language>            
+    	<language tag="de-DE">language/de-DE.mod_##module##.ini</language>
+    	<language tag="nl-NL">language/nl-NL.mod_##module##.ini</language>
 	</languages>
 	<params>
 		<param name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
