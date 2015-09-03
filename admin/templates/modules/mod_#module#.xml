@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="1.6" method="upgrade">
+<extension type="module" version="3.1" client="site" method="upgrade">
 	<name>##Module##</name>
 	<creationDate>##date##</creationDate>
 	<author>##author##</author>
@@ -21,13 +21,11 @@
     	<language tag="de-DE">language/de-DE.mod_##module##.ini</language>
     	<language tag="nl-NL">language/nl-NL.mod_##module##.ini</language>
 	</languages>
-	<params>
-		<param name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
-	</params>
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_##MODULE##_HTML" />
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
+				
 			</fieldset>
 			<fieldset
 				name="advanced">
