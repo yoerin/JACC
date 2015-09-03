@@ -149,13 +149,6 @@
 			<name>default</name>
 		</item>
 		<item>
-			<id>adminlistform25</id>
-			<source>mvccomponent/admin/views/listtmpl_25.php</source>
-			<folder>admin/views/##plural##/tmpl</folder>
-			<ext>php</ext>
-			<name>default_25</name>
-		</item>
-		<item>
 			<id>sitetmpl</id>
 			<source>mvccomponent/site/views/tmpl.php</source>
 			<folder>site/views/##name##/tmpl</folder>
