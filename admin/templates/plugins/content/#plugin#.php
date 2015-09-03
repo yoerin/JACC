@@ -13,52 +13,19 @@ class plg##Plugtype####Plugin## extends JPlugin
 {
 
 	/**
-	 * Example after delete method.
+	 * Example prepare content method
 	 *
-	 * @param	string	The context for the content passed to the plugin.
-	 * @param	object	The data relating to the content that was deleted.
-	 * @return	boolean
+	 * Method is called by the view
+	 *
+	 * @param	string	The context of the content being passed to the plugin.
+	 * @param	object	The content object.  Note $article->text is also available
+	 * @param	object	The content params
+	 * @param	int		The 'page' number
 	 * @since	1.6
 	 */
-	public function onContentAfterDelete($context, $data)
-	{
-		return true;
-	}
-
-	/**
-	 * Example after display content method
-	 *
-	 * Method is called by the view and the results are imploded and displayed in a placeholder
-	 *
-	 * @param	string		The context for the content passed to the plugin.
-	 * @param	object		The content object.  Note $article->text is also available
-	 * @param	object		The content params
-	 * @param	int			The 'page' number
-	 * @return	string
-	 * @since	1.6
-	 */
-	public function onContentAfterDisplay($context, &$article, &$params, $limitstart)
+	public function onContentPrepare($context, &$article, &$params, $limitstart)
 	{
 		$app = JFactory::getApplication();
-
-		return '';
-	}
-
-	/**
-	 * Example after save content method
-	 * Article is passed by reference, but after the save, so no changes will be saved.
-	 * Method is called right after the content is saved
-	 *
-	 * @param	string		The context of the content passed to the plugin (added in 1.6)
-	 * @param	object		A JTableContent object
-	 * @param	bool		If the content is just about to be created
-	 * @since	1.6
-	 */
-	public function onContentAfterSave($context, &$article, $isNew)
-	{
-		$app = JFactory::getApplication();
-
-		return true;
 	}
 
 	/**
@@ -81,19 +48,6 @@ class plg##Plugtype####Plugin## extends JPlugin
 	}
 
 	/**
-	 * Example before delete method.
-	 *
-	 * @param	string	The context for the content passed to the plugin.
-	 * @param	object	The data relating to the content that is to be deleted.
-	 * @return	boolean
-	 * @since	1.6
-	 */
-	public function onContentBeforeDelete($context, $data)
-	{
-		return true;
-	}
-
-	/**
 	 * Example before display content method
 	 *
 	 * Method is called by the view and the results are imploded and displayed in a placeholder
@@ -106,6 +60,25 @@ class plg##Plugtype####Plugin## extends JPlugin
 	 * @since	1.6
 	 */
 	public function onContentBeforeDisplay($context, &$article, &$params, $limitstart)
+	{
+		$app = JFactory::getApplication();
+
+		return '';
+	}
+
+	/**
+	 * Example after display content method
+	 *
+	 * Method is called by the view and the results are imploded and displayed in a placeholder
+	 *
+	 * @param	string		The context for the content passed to the plugin.
+	 * @param	object		The content object.  Note $article->text is also available
+	 * @param	object		The content params
+	 * @param	int			The 'page' number
+	 * @return	string
+	 * @since	1.6
+	 */
+	public function onContentAfterDisplay($context, &$article, &$params, $limitstart)
 	{
 		$app = JFactory::getApplication();
 
@@ -126,10 +99,83 @@ class plg##Plugtype####Plugin## extends JPlugin
 	 * @return	bool		If false, abort the save
 	 * @since	1.6
 	 */
-	public function onContentBeforeSave($context, &$article, $isNew)
+	public function onContentBeforeSave($context, $article, $isNew)
 	{
 		$app = JFactory::getApplication();
 
+		return true;
+	}
+
+	/**
+	 * Example after save content method
+	 * Article is passed by reference, but after the save, so no changes will be saved.
+	 * Method is called right after the content is saved
+	 *
+	 * @param	string		The context of the content passed to the plugin (added in 1.6)
+	 * @param	object		A JTableContent object
+	 * @param	bool		If the content is just about to be created
+	 * @since	1.6
+	 */
+	public function onContentAfterSave($context, $article, $isNew)
+	{
+		$app = JFactory::getApplication();
+
+		return true;
+	}
+
+	/**
+	 * Example after save content method
+	 * Article is passed by reference, but after the save, so no changes will be saved.
+	 * Method is called right after the content is saved
+	 *
+	 * @param	form		
+	 * @param	data		A JTableContent object
+	 */
+	public function onContentPrepareForm($form, $data)
+	{
+		$app = JFactory::getApplication();
+
+		return true;
+	}
+
+	/**
+	 * Example after save content method
+	 * Article is passed by reference, but after the save, so no changes will be saved.
+	 * Method is called right after the content is saved
+	 *
+	 * @param	string		The context of the content passed to the plugin
+	 * @param	object		A JTableContent object
+	 */
+	public function onContentPrepareData($context, $data)
+	{
+		$app = JFactory::getApplication();
+
+		return true;
+	}
+
+	/**
+	 * Example before delete method.
+	 *
+	 * @param	string	The context for the content passed to the plugin.
+	 * @param	object	The data relating to the content that is to be deleted.
+	 * @return	boolean
+	 * @since	1.6
+	 */
+	public function onContentBeforeDelete($context, $data)
+	{
+		return true;
+	}
+
+	/**
+	 * Example after delete method.
+	 *
+	 * @param	string	The context for the content passed to the plugin.
+	 * @param	object	The data relating to the content that was deleted.
+	 * @return	boolean
+	 * @since	1.6
+	 */
+	public function onContentAfterDelete($context, $data)
+	{
 		return true;
 	}
 
@@ -147,19 +193,13 @@ class plg##Plugtype####Plugin## extends JPlugin
 		return true;
 	}
 
-	/**
-	 * Example prepare content method
-	 *
-	 * Method is called by the view
-	 *
-	 * @param	string	The context of the content being passed to the plugin.
-	 * @param	object	The content object.  Note $article->text is also available
-	 * @param	object	The content params
-	 * @param	int		The 'page' number
-	 * @since	1.6
-	 */
-	public function onContentPrepare($context, &$article, &$params, $limitstart)
+	public function onContentSearch($text, $phrase, $ordering, $areas)
 	{
-		$app = JFactory::getApplication();
+		return true;
+	}
+
+	public function onContentSearchAreas()
+	{
+		return array();
 	}
 }
