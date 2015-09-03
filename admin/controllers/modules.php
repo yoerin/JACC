@@ -23,24 +23,24 @@ class JaccControllerModules extends JaccController
 	/**
 	 * Constructor
 	 */
-	protected $_viewname = 'modules'; 
+	protected $_viewname = 'modules';
 	protected $_mainmodel = 'modules';
 	protected $_itemname = 'Modules';
-		 
-	public function __construct($config = array ()) 
+
+	public function __construct($config = array ())
 	{
 		parent::__construct($config);
 		JRequest::setVar('view', $this->_viewname);
 
 	}
 
-	
+
 	/*
 	 * Creates the archive from live module
 	 */
 	public function zipLiveModule(& $model)
 	{
-		
+
 	    jimport('joomla.filesystem.archive');
 	    jimport('joomla.filesystem.folder');
 		jimport('joomla.filesystem.file');
@@ -48,17 +48,17 @@ class JaccControllerModules extends JaccController
 
 		$item = $model->getItem();
 
-		
+
 		//Create TempFolders
 		if (JFolder::exists($model->getTempPath(true))) {
 			JFolder::delete($model->getTempPath(true));
 		}
 		JFolder::create($model->getTempPath());
-  
+
 		//Copy the component
 		if (JFolder::exists(JPATH_SITE.'/modules/'.$item->name)) {
 		    JFolder::copy(JPATH_SITE.'/modules/'.$item->name, $model->getTempPath(),'',true);
-		} elseif (JFolder::exists(JPATH_ADMINISTRATOR.'/modules/'.$item->name)) {						      
+		} elseif (JFolder::exists(JPATH_ADMINISTRATOR.'/modules/'.$item->name)) {
 		    JFolder::copy(JPATH_ADMINISTRATOR.'/modules/'.$item->name, $model->getTempPath(),'',true);
 		} else {
 			JFolder::delete($model->getTempPath());
@@ -89,21 +89,21 @@ class JaccControllerModules extends JaccController
 		foreach ($langfiles_admin as $file) {
 			JFile::copy($file, $model->getTempPath().'/language/'.JFile::getName($file));
 		}
-		
+
 		$model->readinFiles();
-		
-		$model->buildArchiveContent(); 
+
+		$model->buildArchiveContent();
 
 		//create archive
-		$model->createArchive();		
+		$model->createArchive();
 		//delete tmp folder
 		if (JFolder::exists(JPATH_SITE.'/tmp/jctmp')) {
 			JFolder::delete(JPATH_SITE.'/tmp/jctmp');
-		}	 
+		}
 
 	}
-	
-	
+
+
 	public function zip () {
 	    require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/jacc.php';
 		jimport('joomla.filesystem.archive');
@@ -113,40 +113,41 @@ class JaccControllerModules extends JaccController
 
 		$zipdir = JPATH_COMPONENT.'/archives';
 		//Get Model and Item
-		
-	
-		$model = $this->getModel($this->_mainmodel);		
+
+
+		$model = $this->getModel($this->_mainmodel);
 		$item = $model->getItem();
-		
-		
+
+
 		$archive = strtolower($item->name).'-'.$item->version.'.zip';
-		
+
 		$model->addPath('archive',$zipdir.'/'.$archive);
-		
+
 		//some basic variables to replace the template patterns
 		//now
-		$date = JFactory::getDate();		
-		
+		$date = JFactory::getDate();
+
 		$mod_module = $item->name;
 
 		JRequest::setVar('module', $mod_module);
-		
+
 		//Component name for camel case functions
 		$module = ucfirst(strtolower(str_replace('mod_', '', $mod_module )));
 
 		//lower Component name
-		$lmodule = strtolower(str_replace('mod_', '', $mod_module ));				
-		
+		$lmodule = strtolower(str_replace('mod_', '', $mod_module ));
+		$LMODULE = strtoupper($lmodule);
+
 		$model->addRenaming($lmodule,'#module#');
-		
+
 		//archive name
 		$archive = 'mod_'.$lmodule.'-'.$item->version.'.zip';
-		
+
 		//User wants to create archive from installed component
 		if ($item->use >1 ) {
 			return $this->zipLiveModule($model) ;
 		}
-		
+
 				//Create temp folder
 		if (JFolder::exists($model->getTempPath())) {
 
@@ -155,29 +156,29 @@ class JaccControllerModules extends JaccController
 
 		// copy Basic MVC to tmp/jctmp
 		JFolder::copy(JPATH_COMPONENT.'/templates/modules', $model->getTempPath());
-		
-						
-		$options = array('module' => $lmodule);		
-	    
+
+
+		$options = array('module' => $lmodule, 'MODULE' => $LMODULE);
+
 		$model->readinFiles();
 
 		$model->customizeFiles($options);
-							
-		//Delete old archive if exists	
+
+		//Delete old archive if exists
 		if (JFile::exists($zipdir.'/'.$archive)) {
 			JFile::delete($zipdir.'/'.$archive);
 		}
 		$model->readinFiles();
-		
-		$model->buildArchiveContent(); 
+
+		$model->buildArchiveContent();
 
 		//create archive
-		$model->createArchive();		
-		
+		$model->createArchive();
+
 		//delete tmp folder
 		if (JFolder::exists(JPATH_SITE.'/tmp/jctmp')) {
 			JFolder::delete(JPATH_SITE.'/tmp/jctmp');
-		}		
+		}
 	}
 	/**
 	 * stores the item
@@ -194,9 +195,9 @@ class JaccControllerModules extends JaccController
 		0
 		), 'post', 'array');
 		$post['id'] = (int) $cid[0];
-        
+
 		$model = $this->getModel('modules');
-		
+
 		JRequest::setVar('mode', 'return');
 		// Validate the posted data.
 		$form	= $model->getForm();
@@ -210,8 +211,8 @@ class JaccControllerModules extends JaccController
 
 		// Check for validation errors.
 		if ($post === false) {
-				
-				
+
+
 			// Get the validation messages.
 			$errors	= $model->getErrors();
 
@@ -230,7 +231,7 @@ class JaccControllerModules extends JaccController
 
 		if ($model->store($post)) {
 			$msg = JText::_($this->_itemname .' Saved');
-			JRequest::setVar("cid",array($model->getId()));			
+			JRequest::setVar("cid",array($model->getId()));
 		} else {
 			$msg = $model->getError();
 		}
@@ -246,7 +247,7 @@ class JaccControllerModules extends JaccController
 				$link = 'index.php?option=com_jacc&view='.$this->_viewname;
 				break;
 		}
-        
+
 		if ($this->zip() == -2) {
 			$msg = JText::_('MSG_MISSING_LIVE_EXTENSION');
 			$this->setRedirect($link, $msg);
