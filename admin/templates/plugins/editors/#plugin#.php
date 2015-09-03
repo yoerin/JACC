@@ -11,6 +11,10 @@ jimport('joomla.plugin.plugin');
 
 class plg##Plugtype####Plugin## extends JPlugin
 {
+	public function onCustomEditorButton()
+	{
+		// Do nothing
+	}
 
 	/**
 	 * Method to handle the onInitEditor event.
