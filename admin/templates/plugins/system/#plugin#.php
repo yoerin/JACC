@@ -74,4 +74,17 @@ class plg##Plugtype####Plugin## extends JPlugin
 	}
 	**/
 
+	public function __construct(&$subject, $config = array())
+	{
+		parent::__construct($subject, $config);
+		$this->app  = JFactory::getApplication();
+		$this->lang = JFactory::getLanguage();
+		$this->lang->load('##plugin##', JPATH_ADMINISTRATOR);
+
+		if (defined('JDEBUG') && JDEBUG)
+		{
+			JLog::addLogger(array('text_file' => '##plugin##.log.php'), JLog::ALL, array('##plugin##'));
+		}
+	}
+
 }
