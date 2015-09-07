@@ -103,7 +103,7 @@ defined('_JEXEC') or die('Restricted access');
         <td><?php echo $row->created ?></td>
         <td><?php echo $published ?></td>
 		<td>				
-			<a href="<?php echo JURI::base() ?>components/com_jacc/archives/plg_<?php echo $row->name ?>-<?php echo $row->version ?>.zip">plg_<?php echo $row->name ?>-<?php echo $row->version ?>.zip</a>
+			<a href="<?php echo JURI::base() ?>components/com_jacc/archives/<?php echo $archive ?>"><?php echo $archive ?></a>
 		</td>        
         <td><?php echo $row->id ?></td>		
 	</tr>
